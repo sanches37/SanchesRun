@@ -11,6 +11,10 @@
 		4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEE129AC8C5B00EBB956 /* ContentView.swift */; };
 		4D47FEE429AC8C5E00EBB956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */; };
 		4D47FEE729AC8C5E00EBB956 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D47FEE629AC8C5E00EBB956 /* Preview Assets.xcassets */; };
+		4D47FEF129AC901400EBB956 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF029AC901400EBB956 /* LocationManager.swift */; };
+		4D47FEF329AC97B900EBB956 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF229AC97B900EBB956 /* Main.swift */; };
+		4D47FEF629AC97E600EBB956 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF529AC97E600EBB956 /* MainViewModel.swift */; };
+		4D47FEF929AC9D8600EBB956 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF829AC9D8600EBB956 /* ObservableObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		4D47FEE129AC8C5B00EBB956 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D47FEE629AC8C5E00EBB956 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4D47FEF029AC901400EBB956 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		4D47FEF229AC97B900EBB956 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		4D47FEF529AC97E600EBB956 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		4D47FEF829AC9D8600EBB956 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +60,11 @@
 			isa = PBXGroup;
 			children = (
 				4D47FEED29AC8E8E00EBB956 /* Application */,
+				4D47FEF429AC97CB00EBB956 /* ViewModel */,
 				4D47FEEE29AC8EA300EBB956 /* View */,
 				4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */,
+				4D47FEEF29AC8FFA00EBB956 /* Manager */,
+				4D47FEF729AC9D5900EBB956 /* Extension */,
 				4D47FEE529AC8C5E00EBB956 /* Preview Content */,
 			);
 			path = SanchesRun;
@@ -79,8 +90,33 @@
 			isa = PBXGroup;
 			children = (
 				4D47FEE129AC8C5B00EBB956 /* ContentView.swift */,
+				4D47FEF229AC97B900EBB956 /* Main.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4D47FEEF29AC8FFA00EBB956 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				4D47FEF029AC901400EBB956 /* LocationManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		4D47FEF429AC97CB00EBB956 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4D47FEF529AC97E600EBB956 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4D47FEF729AC9D5900EBB956 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4D47FEF829AC9D8600EBB956 /* ObservableObject.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,8 +189,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D47FEF629AC97E600EBB956 /* MainViewModel.swift in Sources */,
 				4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */,
 				4D47FEE029AC8C5B00EBB956 /* SanchesRunApp.swift in Sources */,
+				4D47FEF329AC97B900EBB956 /* Main.swift in Sources */,
+				4D47FEF129AC901400EBB956 /* LocationManager.swift in Sources */,
+				4D47FEF929AC9D8600EBB956 /* ObservableObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +326,8 @@
 				DEVELOPMENT_TEAM = 626VJ36K6Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 기반 컨텐츠 추천을 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 기반 컨텐츠 추천을 위해 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -315,6 +357,8 @@
 				DEVELOPMENT_TEAM = 626VJ36K6Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 기반 컨텐츠 추천을 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 기반 컨텐츠 추천을 위해 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
