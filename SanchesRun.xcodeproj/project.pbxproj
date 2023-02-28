@@ -27,6 +27,7 @@
 		4D47FEF229AC97B900EBB956 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		4D47FEF529AC97E600EBB956 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4D47FEF829AC9D8600EBB956 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
+		4D47FF0129AEA53600EBB956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +60,7 @@
 		4D47FEDE29AC8C5B00EBB956 /* SanchesRun */ = {
 			isa = PBXGroup;
 			children = (
+				4D47FF0129AEA53600EBB956 /* Info.plist */,
 				4D47FEED29AC8E8E00EBB956 /* Application */,
 				4D47FEF429AC97CB00EBB956 /* ViewModel */,
 				4D47FEEE29AC8EA300EBB956 /* View */,
@@ -326,6 +328,7 @@
 				DEVELOPMENT_TEAM = 626VJ36K6Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SanchesRun/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 기반 컨텐츠 추천을 위해 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 기반 컨텐츠 추천을 위해 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -357,6 +360,7 @@
 				DEVELOPMENT_TEAM = 626VJ36K6Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SanchesRun/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 기반 컨텐츠 추천을 위해 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 기반 컨텐츠 추천을 위해 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

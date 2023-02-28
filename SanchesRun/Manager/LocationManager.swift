@@ -14,7 +14,13 @@ final class LocationManager: NSObject {
   
   override init() {
     super.init()
+    defaultSetting()
+  }
+  
+  private func defaultSetting() {
     locationManager.delegate = self
+    locationManager.allowsBackgroundLocationUpdates = true
+    locationManager.showsBackgroundLocationIndicator = true
   }
   
   func fetchCurrentLocation() -> AnyPublisher<CLLocation?, Never> {
