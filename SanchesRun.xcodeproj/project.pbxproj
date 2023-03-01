@@ -12,10 +12,15 @@
 		4D47FEE429AC8C5E00EBB956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */; };
 		4D47FEE729AC8C5E00EBB956 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D47FEE629AC8C5E00EBB956 /* Preview Assets.xcassets */; };
 		4D47FEF129AC901400EBB956 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF029AC901400EBB956 /* LocationManager.swift */; };
-		4D47FEF329AC97B900EBB956 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF229AC97B900EBB956 /* Main.swift */; };
-		4D47FEF629AC97E600EBB956 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF529AC97E600EBB956 /* MainViewModel.swift */; };
+		4D47FEF329AC97B900EBB956 /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF229AC97B900EBB956 /* RunView.swift */; };
+		4D47FEF629AC97E600EBB956 /* RunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF529AC97E600EBB956 /* RunViewModel.swift */; };
 		4D47FEF929AC9D8600EBB956 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF829AC9D8600EBB956 /* ObservableObject.swift */; };
 		4D6CAFFC29AF2ABA0094E69D /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CAFFB29AF2ABA0094E69D /* TimerManager.swift */; };
+		4D6CAFFE29AF2D1C0094E69D /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CAFFD29AF2D1C0094E69D /* TimerView.swift */; };
+		4D6CB00029AF2F200094E69D /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CAFFF29AF2F200094E69D /* TimeInterval.swift */; };
+		4D6CB00329AF30520094E69D /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00229AF30520094E69D /* PrimaryButtonStyle.swift */; };
+		4D6CB00629AF30780094E69D /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00529AF30780094E69D /* FontSize.swift */; };
+		4D6CB00829AF30C10094E69D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00729AF30C10094E69D /* Color.swift */; };
 		84BF2AF48C913AE8F53DE097 /* Pods_SanchesRun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAD1F40AB099B030F14D292 /* Pods_SanchesRun.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,11 +31,16 @@
 		4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D47FEE629AC8C5E00EBB956 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4D47FEF029AC901400EBB956 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		4D47FEF229AC97B900EBB956 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
-		4D47FEF529AC97E600EBB956 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		4D47FEF229AC97B900EBB956 /* RunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunView.swift; sourceTree = "<group>"; };
+		4D47FEF529AC97E600EBB956 /* RunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunViewModel.swift; sourceTree = "<group>"; };
 		4D47FEF829AC9D8600EBB956 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
 		4D47FF0129AEA53600EBB956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4D6CAFFB29AF2ABA0094E69D /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		4D6CAFFD29AF2D1C0094E69D /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		4D6CAFFF29AF2F200094E69D /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
+		4D6CB00229AF30520094E69D /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
+		4D6CB00529AF30780094E69D /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
+		4D6CB00729AF30C10094E69D /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		50EB442215449E6A960657A0 /* Pods-SanchesRun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SanchesRun.debug.xcconfig"; path = "Target Support Files/Pods-SanchesRun/Pods-SanchesRun.debug.xcconfig"; sourceTree = "<group>"; };
 		51D284E38E3626B63EBCF4AF /* Pods-SanchesRun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SanchesRun.release.xcconfig"; path = "Target Support Files/Pods-SanchesRun/Pods-SanchesRun.release.xcconfig"; sourceTree = "<group>"; };
 		8AAD1F40AB099B030F14D292 /* Pods_SanchesRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SanchesRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +83,8 @@
 				4D47FEED29AC8E8E00EBB956 /* Application */,
 				4D47FEF429AC97CB00EBB956 /* ViewModel */,
 				4D47FEEE29AC8EA300EBB956 /* View */,
+				4D6CB00129AF30160094E69D /* CommonView */,
+				4D6CB00429AF30630094E69D /* ViewModifier */,
 				4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */,
 				4D47FEEF29AC8FFA00EBB956 /* Manager */,
 				4D47FEF729AC9D5900EBB956 /* Extension */,
@@ -101,7 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				4D47FEE129AC8C5B00EBB956 /* ContentView.swift */,
-				4D47FEF229AC97B900EBB956 /* Main.swift */,
+				4D47FEF229AC97B900EBB956 /* RunView.swift */,
+				4D6CAFFD29AF2D1C0094E69D /* TimerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -110,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				4D47FEF029AC901400EBB956 /* LocationManager.swift */,
+				4D6CAFFB29AF2ABA0094E69D /* TimerManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -117,7 +131,7 @@
 		4D47FEF429AC97CB00EBB956 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				4D47FEF529AC97E600EBB956 /* MainViewModel.swift */,
+				4D47FEF529AC97E600EBB956 /* RunViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -126,9 +140,26 @@
 			isa = PBXGroup;
 			children = (
 				4D47FEF829AC9D8600EBB956 /* ObservableObject.swift */,
-				4D6CAFFB29AF2ABA0094E69D /* TimerManager.swift */,
+				4D6CAFFF29AF2F200094E69D /* TimeInterval.swift */,
+				4D6CB00729AF30C10094E69D /* Color.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		4D6CB00129AF30160094E69D /* CommonView */ = {
+			isa = PBXGroup;
+			children = (
+				4D6CB00229AF30520094E69D /* PrimaryButtonStyle.swift */,
+			);
+			path = CommonView;
+			sourceTree = "<group>";
+		};
+		4D6CB00429AF30630094E69D /* ViewModifier */ = {
+			isa = PBXGroup;
+			children = (
+				4D6CB00529AF30780094E69D /* FontSize.swift */,
+			);
+			path = ViewModifier;
 			sourceTree = "<group>";
 		};
 		822CF396503D9285C21754D3 /* Pods */ = {
@@ -262,12 +293,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D47FEF629AC97E600EBB956 /* MainViewModel.swift in Sources */,
+				4D47FEF629AC97E600EBB956 /* RunViewModel.swift in Sources */,
+				4D6CB00029AF2F200094E69D /* TimeInterval.swift in Sources */,
 				4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */,
 				4D47FEE029AC8C5B00EBB956 /* SanchesRunApp.swift in Sources */,
-				4D47FEF329AC97B900EBB956 /* Main.swift in Sources */,
+				4D47FEF329AC97B900EBB956 /* RunView.swift in Sources */,
+				4D6CB00829AF30C10094E69D /* Color.swift in Sources */,
+				4D6CB00629AF30780094E69D /* FontSize.swift in Sources */,
 				4D47FEF129AC901400EBB956 /* LocationManager.swift in Sources */,
+				4D6CB00329AF30520094E69D /* PrimaryButtonStyle.swift in Sources */,
 				4D6CAFFC29AF2ABA0094E69D /* TimerManager.swift in Sources */,
+				4D6CAFFE29AF2D1C0094E69D /* TimerView.swift in Sources */,
 				4D47FEF929AC9D8600EBB956 /* ObservableObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

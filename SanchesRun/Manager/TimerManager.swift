@@ -9,7 +9,6 @@ import Foundation
 
 final class TimerManager {
   private var startDate = Date()
-  private var isActive = false
   private var difference: TimeInterval = 0
   private var pauseTimeInterval: TimeInterval = 0
   
@@ -19,11 +18,9 @@ final class TimerManager {
     } else {
       self.startDate = Date(timeIntervalSinceNow: -pauseTimeInterval)
     }
-    self.isActive = true
   }
   
   var reset: TimeInterval {
-    self.isActive = false
     self.pauseTimeInterval = 0
     return 0
   }
@@ -34,7 +31,6 @@ final class TimerManager {
   }
   
   func pause() {
-    self.isActive = false
     self.pauseTimeInterval = difference
   }
 }
