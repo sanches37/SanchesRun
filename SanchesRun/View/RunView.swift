@@ -11,6 +11,8 @@ struct RunView: View {
 @StateObject private var viewModel = RunViewModel()
     var body: some View {
       VStack {
+        MapView()
+          .edgesIgnoringSafeArea(.top)
         TimerView()
       }
       .environmentObject(viewModel)

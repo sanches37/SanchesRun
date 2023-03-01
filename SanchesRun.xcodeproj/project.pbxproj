@@ -21,6 +21,7 @@
 		4D6CB00329AF30520094E69D /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00229AF30520094E69D /* PrimaryButtonStyle.swift */; };
 		4D6CB00629AF30780094E69D /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00529AF30780094E69D /* FontSize.swift */; };
 		4D6CB00829AF30C10094E69D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00729AF30C10094E69D /* Color.swift */; };
+		4D6CB00B29AF36E80094E69D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00A29AF36E80094E69D /* MapView.swift */; };
 		84BF2AF48C913AE8F53DE097 /* Pods_SanchesRun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAD1F40AB099B030F14D292 /* Pods_SanchesRun.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		4D6CB00229AF30520094E69D /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		4D6CB00529AF30780094E69D /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		4D6CB00729AF30C10094E69D /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		4D6CB00A29AF36E80094E69D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		50EB442215449E6A960657A0 /* Pods-SanchesRun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SanchesRun.debug.xcconfig"; path = "Target Support Files/Pods-SanchesRun/Pods-SanchesRun.debug.xcconfig"; sourceTree = "<group>"; };
 		51D284E38E3626B63EBCF4AF /* Pods-SanchesRun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SanchesRun.release.xcconfig"; path = "Target Support Files/Pods-SanchesRun/Pods-SanchesRun.release.xcconfig"; sourceTree = "<group>"; };
 		8AAD1F40AB099B030F14D292 /* Pods_SanchesRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SanchesRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,7 @@
 			children = (
 				4D47FEE129AC8C5B00EBB956 /* ContentView.swift */,
 				4D47FEF229AC97B900EBB956 /* RunView.swift */,
+				4D6CB00A29AF36E80094E69D /* MapView.swift */,
 				4D6CAFFD29AF2D1C0094E69D /* TimerView.swift */,
 			);
 			path = View;
@@ -297,6 +300,7 @@
 				4D6CB00029AF2F200094E69D /* TimeInterval.swift in Sources */,
 				4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */,
 				4D47FEE029AC8C5B00EBB956 /* SanchesRunApp.swift in Sources */,
+				4D6CB00B29AF36E80094E69D /* MapView.swift in Sources */,
 				4D47FEF329AC97B900EBB956 /* RunView.swift in Sources */,
 				4D6CB00829AF30C10094E69D /* Color.swift in Sources */,
 				4D6CB00629AF30780094E69D /* FontSize.swift in Sources */,
