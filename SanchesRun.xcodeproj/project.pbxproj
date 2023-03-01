@@ -15,6 +15,7 @@
 		4D47FEF329AC97B900EBB956 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF229AC97B900EBB956 /* Main.swift */; };
 		4D47FEF629AC97E600EBB956 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF529AC97E600EBB956 /* MainViewModel.swift */; };
 		4D47FEF929AC9D8600EBB956 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF829AC9D8600EBB956 /* ObservableObject.swift */; };
+		84BF2AF48C913AE8F53DE097 /* Pods_SanchesRun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAD1F40AB099B030F14D292 /* Pods_SanchesRun.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,9 @@
 		4D47FEF529AC97E600EBB956 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4D47FEF829AC9D8600EBB956 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
 		4D47FF0129AEA53600EBB956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		50EB442215449E6A960657A0 /* Pods-SanchesRun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SanchesRun.debug.xcconfig"; path = "Target Support Files/Pods-SanchesRun/Pods-SanchesRun.debug.xcconfig"; sourceTree = "<group>"; };
+		51D284E38E3626B63EBCF4AF /* Pods-SanchesRun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SanchesRun.release.xcconfig"; path = "Target Support Files/Pods-SanchesRun/Pods-SanchesRun.release.xcconfig"; sourceTree = "<group>"; };
+		8AAD1F40AB099B030F14D292 /* Pods_SanchesRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SanchesRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84BF2AF48C913AE8F53DE097 /* Pods_SanchesRun.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,8 @@
 			children = (
 				4D47FEDE29AC8C5B00EBB956 /* SanchesRun */,
 				4D47FEDD29AC8C5B00EBB956 /* Products */,
+				822CF396503D9285C21754D3 /* Pods */,
+				9F0A756E4F283FE224C17B0A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +128,24 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		822CF396503D9285C21754D3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				50EB442215449E6A960657A0 /* Pods-SanchesRun.debug.xcconfig */,
+				51D284E38E3626B63EBCF4AF /* Pods-SanchesRun.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9F0A756E4F283FE224C17B0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8AAD1F40AB099B030F14D292 /* Pods_SanchesRun.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,9 +153,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D47FEEA29AC8C5E00EBB956 /* Build configuration list for PBXNativeTarget "SanchesRun" */;
 			buildPhases = (
+				2C62D859CF928F62DBCAAEBF /* [CP] Check Pods Manifest.lock */,
 				4D47FED829AC8C5B00EBB956 /* Sources */,
 				4D47FED929AC8C5B00EBB956 /* Frameworks */,
 				4D47FEDA29AC8C5B00EBB956 /* Resources */,
+				188F34DF419FFECEF9C6C399 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,6 +212,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		188F34DF419FFECEF9C6C399 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SanchesRun/Pods-SanchesRun-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SanchesRun/Pods-SanchesRun-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SanchesRun/Pods-SanchesRun-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C62D859CF928F62DBCAAEBF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SanchesRun-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4D47FED829AC8C5B00EBB956 /* Sources */ = {
@@ -319,6 +388,7 @@
 		};
 		4D47FEEB29AC8C5E00EBB956 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50EB442215449E6A960657A0 /* Pods-SanchesRun.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -341,7 +411,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sanches.SanchesRun.SanchesRun;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanches.SanchesRun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -351,6 +421,7 @@
 		};
 		4D47FEEC29AC8C5E00EBB956 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51D284E38E3626B63EBCF4AF /* Pods-SanchesRun.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -373,7 +444,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sanches.SanchesRun.SanchesRun;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanches.SanchesRun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
