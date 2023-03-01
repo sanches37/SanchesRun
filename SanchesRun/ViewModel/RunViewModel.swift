@@ -12,10 +12,9 @@ final class RunViewModel: ObservableObject {
   private let locationManager = LocationManager()
   private let timerManager = TimerManager()
   private var cancellable = Set<AnyCancellable>()
-  private var isTimerActive = false
   
   @Published private(set) var time: TimeInterval = 0
-  @Published var timerState: TimerState = .stop
+  @Published private(set) var timerState: TimerState = .stop
   
   init() {
     fetchLocation()
@@ -33,23 +32,23 @@ final class RunViewModel: ObservableObject {
   }
   
   func timerReset() {
-    isTimerActive = false
+    timerState = .stop
     self.time = timerManager.reset
     
   }
   
   func timerStart() {
     timerManager.start()
-    isTimerActive = true
+    timerState = .active
   }
   
   func timerUpdate() {
-    guard isTimerActive else { return }
+    guard timerState == .active else { return }
     self.time = timerManager.update
   }
   
   func timerPause() {
-    isTimerActive = false
+    timerState = .pause
     timerManager.pause()
   }
 }

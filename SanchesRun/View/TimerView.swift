@@ -38,7 +38,6 @@ struct TimerView: View {
   private var resetButton: some View {
     Button {
       viewModel.timerReset()
-      viewModel.timerState = .stop
     } label: {
       Text("재설정")
         .frame(maxWidth: .infinity)
@@ -50,7 +49,6 @@ struct TimerView: View {
   private var startButton: some View {
     Button {
       viewModel.timerStart()
-      viewModel.timerState = .active
     } label: {
       Text("시작")
         .frame(maxWidth: .infinity)
@@ -62,7 +60,6 @@ struct TimerView: View {
   private var pauseButton: some View {
     Button {
       viewModel.timerPause()
-      viewModel.timerState = .pause
     } label: {
       Text("중지")
         .frame(maxWidth: .infinity)

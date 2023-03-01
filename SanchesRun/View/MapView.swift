@@ -17,16 +17,4 @@ struct MapView: UIViewRepresentable {
   }
   
   func updateUIView(_ uiView: NMFMapView, context: Context) {}
-  
-  func makeCoordinator() -> Coordinator {
-    MapView.Coordinator(viewModel: viewModel)
-  }
-  
-  class Coordinator: NSObject {
-    private let viewModel: RunViewModel
-    
-    init(viewModel: RunViewModel) {
-      self.viewModel = viewModel
-    }
-  }
 }
