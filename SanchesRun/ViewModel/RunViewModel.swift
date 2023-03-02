@@ -17,9 +17,24 @@ final class RunViewModel: ObservableObject {
   @Published private(set) var time: TimeInterval = 0
   @Published private(set) var timerState: TimerState = .stop
   @Published private(set) var runPaths: [NMGLatLng] = []
+  @Published private(set) var firstUserLocation: NMGLatLng?
   
   init() {
+    setFirstUserLocation()
     fetchRunPaths()
+  }
+  
+  private func setFirstUserLocation() {
+    locationManager.fetchCurrentLocation()
+      .compactMap { $0 }
+      .map {
+        NMGLatLng(
+          lat: $0.coordinate.latitude,
+          lng: $0.coordinate.longitude
+        )
+      }
+      .first()
+      .assign(to: &$firstUserLocation)
   }
   
   private func fetchRunPaths() {
@@ -28,7 +43,7 @@ final class RunViewModel: ObservableObject {
       .compactMap{ $0 }
       .removeDuplicates { preValue, currentValue in
         let difference = preValue.distance(from: currentValue)
-        let allowableDistance: Double = 15
+        let allowableDistance: Double = 20
         return allowableDistance > difference
       }
       .map {
@@ -39,7 +54,6 @@ final class RunViewModel: ObservableObject {
       }
       .sink { result in
         self.runPaths.append(result)
-        print("location: \(String(describing: result))")
       }
       .store(in: &cancellable)
   }
