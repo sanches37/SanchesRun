@@ -11,7 +11,7 @@ import Combine
 
 struct MapView: UIViewRepresentable {
   @EnvironmentObject private var viewModel: RunViewModel
-  private let pathOverlay = NMFPath()
+  private let multipartPath = NMFMultipartPath()
   
   func makeUIView(context: Context) -> NMFMapView {
     let view = NMFMapView()
@@ -24,8 +24,8 @@ struct MapView: UIViewRepresentable {
     mapView.zoomLevel = 17
     mapView.minZoomLevel = 13
     mapView.positionMode = .direction
-    pathOverlay.color = UIColor.green
-    pathOverlay.width = 10
+    
+    multipartPath.width = 10
   }
   private func setProcess(context: Context, mapView: NMFMapView) {
     FocusFirstLocation(context: context, mapView: mapView)
@@ -34,8 +34,9 @@ struct MapView: UIViewRepresentable {
   }
   
   private func FocusFirstLocation(context: Context, mapView: NMFMapView) {
-    viewModel.$firstUserLocation
+    viewModel.$userLocation
       .compactMap { $0 }
+      .first()
       .sink {
         let cameraUpdate = NMFCameraUpdate(scrollTo: $0)
         mapView.moveCamera(cameraUpdate)
@@ -45,8 +46,7 @@ struct MapView: UIViewRepresentable {
   
   private func FocusRunLocation(context: Context, mapView: NMFMapView) {
     viewModel.$runPaths
-      .filter { !$0.isEmpty }
-      .compactMap { $0.last }
+      .compactMap { $0.last?.last }
       .sink {
         let cameraUpdate = NMFCameraUpdate(scrollTo: $0)
         cameraUpdate.animation = .easeOut
@@ -57,11 +57,14 @@ struct MapView: UIViewRepresentable {
   
   private func updatePath(context: Context, mapView: NMFMapView) {
     viewModel.$runPaths
-      .dropFirst()
+      .filter { !($0.last?.isEmpty ?? true) }
       .sink {
-        pathOverlay.mapView = nil
-        self.pathOverlay.path = NMGLineString(points: $0)
-        pathOverlay.mapView = mapView
+        multipartPath.mapView = nil
+        multipartPath.lineParts = $0.map {
+          NMGLineString(points: $0)
+        }
+        multipartPath.colorParts.append(NMFPathColor(color: UIColor.green))
+        multipartPath.mapView = mapView
       }
       .store(in: &context.coordinator.cancellable)
   }

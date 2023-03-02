@@ -16,34 +16,39 @@ final class RunViewModel: ObservableObject {
   
   @Published private(set) var time: TimeInterval = 0
   @Published private(set) var timerState: TimerState = .stop
-  @Published private(set) var runPaths: [NMGLatLng] = []
-  @Published private(set) var firstUserLocation: NMGLatLng?
+  @Published private(set) var runPaths: [[NMGLatLng]] = []
+  @Published private(set) var userLocation: NMGLatLng?
   
   init() {
-    setFirstUserLocation()
+    setUserLocation()
     fetchRunPaths()
+    updateRunPathsByTimerState()
   }
   
-  private func setFirstUserLocation() {
+  private func setUserLocation() {
     locationManager.fetchCurrentLocation()
-      .compactMap { $0 }
       .map {
-        NMGLatLng(
-          lat: $0.coordinate.latitude,
-          lng: $0.coordinate.longitude
+        guard let result = $0 else { return nil }
+        return NMGLatLng(
+          lat: result.coordinate.latitude,
+          lng: result.coordinate.longitude
         )
       }
-      .first()
-      .assign(to: &$firstUserLocation)
+      .sink { [weak self] result in
+        self?.userLocation = result
+      }
+      .store(in: &cancellable)
   }
   
   private func fetchRunPaths() {
     locationManager.fetchCurrentLocation()
-      .filter { _ in self.timerState == .active }
+      .filter { [weak self] _ in
+        self?.timerState == .active
+      }
       .compactMap{ $0 }
       .removeDuplicates { preValue, currentValue in
         let difference = preValue.distance(from: currentValue)
-        let allowableDistance: Double = 20
+        let allowableDistance: Double = 15
         return allowableDistance > difference
       }
       .map {
@@ -52,8 +57,25 @@ final class RunViewModel: ObservableObject {
           lng: $0.coordinate.longitude
         )
       }
-      .sink { result in
-        self.runPaths.append(result)
+      .sink { [weak self] result in
+        self?.updateRunPaths(location: result)
+      }
+      .store(in: &cancellable)
+  }
+  
+  private func updateRunPaths(location: NMGLatLng) {
+    guard !runPaths.isEmpty else { return }
+    runPaths[runPaths.count - 1].append(location)
+  }
+  
+  private func updateRunPathsByTimerState() {
+    $timerState
+      .dropFirst()
+      .sink { [weak self] result in
+        print(result)
+        guard let self = self,
+              let location = self.userLocation else { return }
+        self.updateRunPaths(location: location)
       }
       .store(in: &cancellable)
   }
@@ -64,6 +86,7 @@ final class RunViewModel: ObservableObject {
   }
   
   func timerStart() {
+    runPaths.append([NMGLatLng]())
     timerManager.start()
     timerState = .active
   }
