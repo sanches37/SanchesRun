@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import NMapsMap
 
 final class RunViewModel: ObservableObject {
   private let locationManager = LocationManager()
@@ -15,17 +16,29 @@ final class RunViewModel: ObservableObject {
   
   @Published private(set) var time: TimeInterval = 0
   @Published private(set) var timerState: TimerState = .stop
+  @Published private(set) var runPaths: [NMGLatLng] = []
   
   init() {
-    fetchLocation()
+    fetchRunPaths()
   }
   
-  private func fetchLocation() {
+  private func fetchRunPaths() {
     locationManager.fetchCurrentLocation()
-      .setFailureType(to: Error.self)
-      .sink { [weak self] completion in
-        self?.onReceiveCompletion("fetchLocation finished", completion)
-      } receiveValue: { result in
+      .filter { _ in self.timerState == .active }
+      .compactMap{ $0 }
+      .removeDuplicates { preValue, currentValue in
+        let difference = preValue.distance(from: currentValue)
+        let allowableDistance: Double = 15
+        return allowableDistance > difference
+      }
+      .map {
+        NMGLatLng(
+          lat: $0.coordinate.latitude,
+          lng: $0.coordinate.longitude
+        )
+      }
+      .sink { result in
+        self.runPaths.append(result)
         print("location: \(String(describing: result))")
       }
       .store(in: &cancellable)
@@ -34,7 +47,6 @@ final class RunViewModel: ObservableObject {
   func timerReset() {
     timerState = .stop
     self.time = timerManager.reset
-    
   }
   
   func timerStart() {

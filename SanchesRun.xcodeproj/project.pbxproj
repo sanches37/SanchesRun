@@ -85,8 +85,6 @@
 				4D47FEED29AC8E8E00EBB956 /* Application */,
 				4D47FEF429AC97CB00EBB956 /* ViewModel */,
 				4D47FEEE29AC8EA300EBB956 /* View */,
-				4D6CB00129AF30160094E69D /* CommonView */,
-				4D6CB00429AF30630094E69D /* ViewModifier */,
 				4D47FEEF29AC8FFA00EBB956 /* Manager */,
 				4D47FEF729AC9D5900EBB956 /* Extension */,
 				4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */,
@@ -118,6 +116,8 @@
 				4D47FEF229AC97B900EBB956 /* RunView.swift */,
 				4D6CB00A29AF36E80094E69D /* MapView.swift */,
 				4D6CAFFD29AF2D1C0094E69D /* TimerView.swift */,
+				4D6CB00129AF30160094E69D /* CommonView */,
+				4D6CB00429AF30630094E69D /* ViewModifier */,
 			);
 			path = View;
 			sourceTree = "<group>";

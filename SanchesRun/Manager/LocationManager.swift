@@ -24,8 +24,7 @@ final class LocationManager: NSObject {
   }
   
   func fetchCurrentLocation() -> AnyPublisher<CLLocation?, Never> {
-    locationSubject
-      .eraseToAnyPublisher()
+    locationSubject.eraseToAnyPublisher()
   }
 }
 
