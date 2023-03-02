@@ -70,9 +70,8 @@ final class RunViewModel: ObservableObject {
   
   private func updateRunPathsByTimerState() {
     $timerState
-      .dropFirst()
-      .sink { [weak self] result in
-        print(result)
+      .filter{ $0 != .stop }
+      .sink { [weak self] _ in
         guard let self = self,
               let location = self.userLocation else { return }
         self.updateRunPaths(location: location)
