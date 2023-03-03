@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D39C92C29B1AB9700D6BEAA /* MapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C92B29B1AB9700D6BEAA /* MapProtocol.swift */; };
+		4D39C92F29B1D69F00D6BEAA /* RunViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C92E29B1D69F00D6BEAA /* RunViewDelegate.swift */; };
 		4D47FEE029AC8C5B00EBB956 /* SanchesRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEDF29AC8C5B00EBB956 /* SanchesRunApp.swift */; };
 		4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEE129AC8C5B00EBB956 /* ContentView.swift */; };
 		4D47FEE429AC8C5E00EBB956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D39C92B29B1AB9700D6BEAA /* MapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProtocol.swift; sourceTree = "<group>"; };
+		4D39C92E29B1D69F00D6BEAA /* RunViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunViewDelegate.swift; sourceTree = "<group>"; };
 		4D47FEDC29AC8C5B00EBB956 /* SanchesRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SanchesRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D47FEDF29AC8C5B00EBB956 /* SanchesRunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanchesRunApp.swift; sourceTree = "<group>"; };
 		4D47FEE129AC8C5B00EBB956 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +64,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D39C92A29B1AB4600D6BEAA /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				4D39C92B29B1AB9700D6BEAA /* MapProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		4D39C92D29B1D68800D6BEAA /* RunViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4D47FEF529AC97E600EBB956 /* RunViewModel.swift */,
+				4D39C92E29B1D69F00D6BEAA /* RunViewDelegate.swift */,
+			);
+			path = RunViewModel;
+			sourceTree = "<group>";
+		};
 		4D47FED329AC8C5B00EBB956 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +107,7 @@
 				4D47FEF429AC97CB00EBB956 /* ViewModel */,
 				4D47FEEE29AC8EA300EBB956 /* View */,
 				4D47FEEF29AC8FFA00EBB956 /* Manager */,
+				4D39C92A29B1AB4600D6BEAA /* Protocol */,
 				4D47FEF729AC9D5900EBB956 /* Extension */,
 				4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */,
 				4D47FEE529AC8C5E00EBB956 /* Preview Content */,
@@ -134,7 +156,7 @@
 		4D47FEF429AC97CB00EBB956 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				4D47FEF529AC97E600EBB956 /* RunViewModel.swift */,
+				4D39C92D29B1D68800D6BEAA /* RunViewModel */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -303,7 +325,9 @@
 				4D6CB00B29AF36E80094E69D /* MapView.swift in Sources */,
 				4D47FEF329AC97B900EBB956 /* RunView.swift in Sources */,
 				4D6CB00829AF30C10094E69D /* Color.swift in Sources */,
+				4D39C92F29B1D69F00D6BEAA /* RunViewDelegate.swift in Sources */,
 				4D6CB00629AF30780094E69D /* FontSize.swift in Sources */,
+				4D39C92C29B1AB9700D6BEAA /* MapProtocol.swift in Sources */,
 				4D47FEF129AC901400EBB956 /* LocationManager.swift in Sources */,
 				4D6CB00329AF30520094E69D /* PrimaryButtonStyle.swift in Sources */,
 				4D6CAFFC29AF2ABA0094E69D /* TimerManager.swift in Sources */,

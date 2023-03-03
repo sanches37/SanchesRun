@@ -8,11 +8,13 @@
 import Foundation
 import Combine
 import NMapsMap
+import SwiftUI
 
 final class RunViewModel: ObservableObject {
   private let locationManager = LocationManager()
   private let timerManager = TimerManager()
-  private var cancellable = Set<AnyCancellable>()
+  private lazy var mapViewDelegate = RunViewDelegate(viewModel: self)
+  var cancellable = Set<AnyCancellable>()
   
   @Published private(set) var time: TimeInterval = 0
   @Published private(set) var timerState: TimerState = .stop
@@ -39,8 +41,8 @@ final class RunViewModel: ObservableObject {
   
   private func fetchFirstLocation() {
     fetchLocationOnce()
-      .sink { [weak self] result in
-        self?.userLocation = result
+      .sink { result in
+        self.userLocation = result
       }
       .store(in: &cancellable)
   }
@@ -75,7 +77,7 @@ final class RunViewModel: ObservableObject {
   
   private func updateRunPathsByTimerState() {
     $timerState
-      .filter{ $0 != .stop }
+      .filter { $0 != .stop }
       .flatMap { _ in
         self.fetchLocationOnce()
       }
@@ -104,5 +106,14 @@ final class RunViewModel: ObservableObject {
   func timerPause() {
     timerState = .pause
     timerManager.pause()
+  }
+}
+
+extension RunViewModel: MapAvailable {
+  func setUp(mapView: NMFMapView) {
+    mapViewDelegate.defaultSetting(mapView: mapView)
+    mapViewDelegate.firstLocation(mapView: mapView)
+    mapViewDelegate.focusRunLocation(mapView: mapView)
+    mapViewDelegate.updatePath(mapView: mapView)
   }
 }
