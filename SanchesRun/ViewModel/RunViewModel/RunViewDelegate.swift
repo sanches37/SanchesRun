@@ -14,14 +14,13 @@ struct RunViewDelegate: MapViewDelegate {
   func defaultSetting(mapView: NMFMapView) {
     mapView.zoomLevel = 17
     mapView.minZoomLevel = 13
-    mapView.positionMode = .direction
-    
   }
   func firstLocation(mapView: NMFMapView) {
     viewModel.$userLocation
       .compactMap { $0 }
       .first()
       .sink {
+        mapView.positionMode = .direction
         let cameraUpdate = NMFCameraUpdate(scrollTo: $0)
         mapView.moveCamera(cameraUpdate)
       }

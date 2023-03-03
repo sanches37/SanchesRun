@@ -5,10 +5,8 @@
 //  Created by tae hoon park on 2023/02/27.
 //
 
-import Foundation
 import Combine
 import NMapsMap
-import SwiftUI
 
 final class RunViewModel: ObservableObject {
   private let locationManager = LocationManager()
