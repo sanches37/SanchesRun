@@ -20,20 +20,25 @@ final class RunViewModel: ObservableObject {
   @Published private(set) var userLocation: NMGLatLng?
   
   init() {
-    setUserLocation()
+    fetchFirstLocation()
     fetchRunPaths()
     updateRunPathsByTimerState()
   }
   
-  private func setUserLocation() {
+  private func fetchLocationOnce() -> AnyPublisher<NMGLatLng, Never> {
     locationManager.fetchCurrentLocation()
-      .map {
-        guard let result = $0 else { return nil }
-        return NMGLatLng(
-          lat: result.coordinate.latitude,
-          lng: result.coordinate.longitude
+      .compactMap { $0 }
+      .first()
+      .flatMap {
+        Just(
+          NMGLatLng(lat: $0.coordinate.latitude, lng: $0.coordinate.longitude)
         )
       }
+      .eraseToAnyPublisher()
+  }
+  
+  private func fetchFirstLocation() {
+    fetchLocationOnce()
       .sink { [weak self] result in
         self?.userLocation = result
       }
@@ -71,9 +76,11 @@ final class RunViewModel: ObservableObject {
   private func updateRunPathsByTimerState() {
     $timerState
       .filter{ $0 != .stop }
-      .sink { _ in
-        guard let location = self.userLocation else { return }
-        self.updateRunPaths(location: location)
+      .flatMap { _ in
+        self.fetchLocationOnce()
+      }
+      .sink { result in
+        self.updateRunPaths(location: result)
       }
       .store(in: &cancellable)
   }

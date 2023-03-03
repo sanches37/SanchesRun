@@ -24,7 +24,6 @@ struct MapView: UIViewRepresentable {
     mapView.zoomLevel = 17
     mapView.minZoomLevel = 13
     mapView.positionMode = .direction
-    
     multipartPath.width = 10
   }
   private func setProcess(context: Context, mapView: NMFMapView) {
