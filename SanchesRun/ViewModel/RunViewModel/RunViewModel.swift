@@ -49,7 +49,7 @@ final class RunViewModel: ObservableObject {
   private func fetchRunPaths() {
     locationManager.fetchCurrentLocation()
       .combineLatest(motionManager.fetchActiveMotion())
-      .filter { self.timerState == .active || $1 }
+      .filter { self.timerState == .active && $1 }
       .compactMap { location, _ in
         return location
       }
@@ -73,7 +73,6 @@ final class RunViewModel: ObservableObject {
   private func updateRunPaths(location: NMGLatLng) {
     guard !runPaths.isEmpty else { return }
     runPaths[runPaths.count - 1].append(location)
-    print(runPaths)
   }
   
   private func updateRunPathsByTimerState() {
