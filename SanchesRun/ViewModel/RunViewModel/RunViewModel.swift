@@ -11,6 +11,7 @@ import NMapsMap
 final class RunViewModel: ObservableObject {
   private let locationManager = LocationManager()
   private let timerManager = TimerManager()
+  private let motionManager = MotionManager()
   private lazy var mapViewDelegate = RunViewDelegate(viewModel: self)
   var cancellable = Set<AnyCancellable>()
   
@@ -30,7 +31,7 @@ final class RunViewModel: ObservableObject {
       .compactMap { $0 }
       .first()
       .flatMap {
-        Just(
+        return Just(
           NMGLatLng(lat: $0.coordinate.latitude, lng: $0.coordinate.longitude)
         )
       }
@@ -47,10 +48,11 @@ final class RunViewModel: ObservableObject {
   
   private func fetchRunPaths() {
     locationManager.fetchCurrentLocation()
-      .filter { [weak self] _ in
-        self?.timerState == .active
+      .combineLatest(motionManager.fetchActiveMotion())
+      .filter { self.timerState == .active || $1 }
+      .compactMap { location, _ in
+        return location
       }
-      .compactMap{ $0 }
       .removeDuplicates { preValue, currentValue in
         let difference = preValue.distance(from: currentValue)
         let allowableDistance: Double = 15
@@ -71,6 +73,7 @@ final class RunViewModel: ObservableObject {
   private func updateRunPaths(location: NMGLatLng) {
     guard !runPaths.isEmpty else { return }
     runPaths[runPaths.count - 1].append(location)
+    print(runPaths)
   }
   
   private func updateRunPathsByTimerState() {

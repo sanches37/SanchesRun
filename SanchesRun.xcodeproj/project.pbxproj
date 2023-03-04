@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D39C92C29B1AB9700D6BEAA /* MapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C92B29B1AB9700D6BEAA /* MapProtocol.swift */; };
 		4D39C92F29B1D69F00D6BEAA /* RunViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C92E29B1D69F00D6BEAA /* RunViewDelegate.swift */; };
+		4D39C93129B2D2DD00D6BEAA /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C93029B2D2DC00D6BEAA /* MotionManager.swift */; };
 		4D47FEE029AC8C5B00EBB956 /* SanchesRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEDF29AC8C5B00EBB956 /* SanchesRunApp.swift */; };
 		4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEE129AC8C5B00EBB956 /* ContentView.swift */; };
 		4D47FEE429AC8C5E00EBB956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		4D39C92B29B1AB9700D6BEAA /* MapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProtocol.swift; sourceTree = "<group>"; };
 		4D39C92E29B1D69F00D6BEAA /* RunViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunViewDelegate.swift; sourceTree = "<group>"; };
+		4D39C93029B2D2DC00D6BEAA /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		4D47FEDC29AC8C5B00EBB956 /* SanchesRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SanchesRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D47FEDF29AC8C5B00EBB956 /* SanchesRunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanchesRunApp.swift; sourceTree = "<group>"; };
 		4D47FEE129AC8C5B00EBB956 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				4D47FEF029AC901400EBB956 /* LocationManager.swift */,
 				4D6CAFFB29AF2ABA0094E69D /* TimerManager.swift */,
+				4D39C93029B2D2DC00D6BEAA /* MotionManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				4D6CAFFC29AF2ABA0094E69D /* TimerManager.swift in Sources */,
 				4D6CAFFE29AF2D1C0094E69D /* TimerView.swift in Sources */,
 				4D47FEF929AC9D8600EBB956 /* ObservableObject.swift in Sources */,
+				4D39C93129B2D2DD00D6BEAA /* MotionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +472,7 @@
 				INFOPLIST_FILE = SanchesRun/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 기반 컨텐츠 추천을 위해 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 기반 컨텐츠 추천을 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "사용자 동작 파악에 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -501,6 +506,7 @@
 				INFOPLIST_FILE = SanchesRun/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 기반 컨텐츠 추천을 위해 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 기반 컨텐츠 추천을 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "사용자 동작 파악에 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
