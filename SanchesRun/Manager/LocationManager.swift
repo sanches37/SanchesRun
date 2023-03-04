@@ -24,7 +24,7 @@ final class LocationManager: NSObject {
     locationManager.showsBackgroundLocationIndicator = true
   }
   
-  func fetchCurrentLocation() -> AnyPublisher<CLLocation?, Never> {
+  func observeLocation() -> AnyPublisher<CLLocation?, Never> {
     locationSubject.eraseToAnyPublisher()
   }
 }

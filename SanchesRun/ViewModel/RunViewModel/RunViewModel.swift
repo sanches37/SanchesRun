@@ -25,12 +25,12 @@ final class RunViewModel: ObservableObject {
   init() {
     fetchFirstLocation()
     fetchRunPaths()
-    updateRunPathsByTimerState()
+    fetchRunPathsByTimerState()
     observeSpeed()
   }
   
   private func fetchLocationOnce() -> AnyPublisher<NMGLatLng, Never> {
-    locationManager.fetchCurrentLocation()
+    locationManager.observeLocation()
       .compactMap { $0 }
       .first()
       .flatMap {
@@ -49,13 +49,20 @@ final class RunViewModel: ObservableObject {
       .store(in: &cancellable)
   }
   
+  private func fetchActiveLocation() -> AnyPublisher<CLLocation, Never> {
+    Publishers.CombineLatest(
+      locationManager.observeLocation(),
+      motionManager.observeActiveMotion()
+    )
+    .filter { self.timerState == .active && $1 }
+    .compactMap { location, _ in
+      return location
+    }
+    .eraseToAnyPublisher()
+  }
+  
   private func fetchRunPaths() {
-    locationManager.fetchCurrentLocation()
-      .combineLatest(motionManager.fetchActiveMotion())
-      .filter { self.timerState == .active && $1 }
-      .compactMap { location, _ in
-        return location
-      }
+    fetchActiveLocation()
       .removeDuplicates { preValue, currentValue in
         let difference = preValue.distance(from: currentValue)
         let allowableDistance: Double = 15
@@ -73,7 +80,7 @@ final class RunViewModel: ObservableObject {
       .store(in: &cancellable)
   }
   
-  private func updateRunPathsByTimerState() {
+  private func fetchRunPathsByTimerState() {
     $timerState
       .filter { $0 != .stop }
       .flatMap { _ in
@@ -102,12 +109,7 @@ final class RunViewModel: ObservableObject {
   }
   
   private func observeSpeed() {
-    locationManager.fetchCurrentLocation()
-      .combineLatest(motionManager.fetchActiveMotion())
-      .filter { self.timerState == .active && $1 }
-      .compactMap { location, _ in
-        return location
-      }
+    fetchActiveLocation()
       .sink { [weak self] result in
         self?.speed = result.speed
       }

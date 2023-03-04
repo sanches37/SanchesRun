@@ -16,7 +16,7 @@ struct MotionManager {
     observeMotion()
   }
   
-  func fetchActiveMotion() -> AnyPublisher<Bool, Never> {
+  func observeActiveMotion() -> AnyPublisher<Bool, Never> {
     activeMotionSubject.eraseToAnyPublisher()
   }
   
