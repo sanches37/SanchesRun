@@ -19,6 +19,7 @@ final class LocationManager: NSObject {
   
   private func defaultSetting() {
     locationManager.delegate = self
+    locationManager.distanceFilter = 5
     locationManager.allowsBackgroundLocationUpdates = true
     locationManager.showsBackgroundLocationIndicator = true
   }

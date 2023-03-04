@@ -10,13 +10,39 @@ import SwiftUI
 struct RunView: View {
   @StateObject private var viewModel = RunViewModel()
   var body: some View {
-    VStack {
+    VStack(spacing: 12) {
       MapView<RunViewModel>()
+      runInfo
+      Divider()
       TimerView()
     }
     .padding(.bottom, 20)
     .edgesIgnoringSafeArea(.top)
     .environmentObject(viewModel)
+  }
+  
+  private var runInfo: some View {
+    HStack {
+      VStack(spacing: 2) {
+        Text("속 도")
+          .fontSize(14)
+          .foregroundColor(Color.lightslategray)
+        Text(viewModel.speed.meterStokmH)
+          .fontSize(30)
+          .foregroundColor(Color.primary)
+      }
+      .frame(maxWidth: .infinity)
+      VStack(spacing: 2) {
+        Text("총거리")
+          .fontSize(14)
+          .foregroundColor(Color.lightslategray)
+        Text(viewModel.totalDistance.withMeter)
+          .fontSize(30)
+          .foregroundColor(Color.primary)
+          .frame(maxWidth: .infinity)
+      }
+      .frame(maxWidth: .infinity)
+    }
   }
 }
 

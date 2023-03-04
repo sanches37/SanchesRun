@@ -12,18 +12,21 @@ final class RunViewModel: ObservableObject {
   private let locationManager = LocationManager()
   private let timerManager = TimerManager()
   private let motionManager = MotionManager()
-  private lazy var mapViewDelegate = RunViewDelegate(viewModel: self)
+  private lazy var mapViewDelegate = MapOfRunViewDelegate(viewModel: self)
   var cancellable = Set<AnyCancellable>()
   
   @Published private(set) var time: TimeInterval = 0
   @Published private(set) var timerState: TimerState = .stop
   @Published private(set) var runPaths: [[NMGLatLng]] = []
   @Published private(set) var userLocation: NMGLatLng?
+  @Published private(set) var speed: Double = 0
+  @Published private(set) var totalDistance: Double = 0
   
   init() {
     fetchFirstLocation()
     fetchRunPaths()
     updateRunPathsByTimerState()
+    observeSpeed()
   }
   
   private func fetchLocationOnce() -> AnyPublisher<NMGLatLng, Never> {
@@ -70,11 +73,6 @@ final class RunViewModel: ObservableObject {
       .store(in: &cancellable)
   }
   
-  private func updateRunPaths(location: NMGLatLng) {
-    guard !runPaths.isEmpty else { return }
-    runPaths[runPaths.count - 1].append(location)
-  }
-  
   private func updateRunPathsByTimerState() {
     $timerState
       .filter { $0 != .stop }
@@ -83,6 +81,35 @@ final class RunViewModel: ObservableObject {
       }
       .sink { result in
         self.updateRunPaths(location: result)
+        self.speed = 0
+      }
+      .store(in: &cancellable)
+  }
+  
+  private func updateRunPaths(location: NMGLatLng) {
+    guard !runPaths.isEmpty else { return }
+    runPaths[runPaths.count - 1].append(location)
+    addRunningDistance = location
+  }
+  
+  private var addRunningDistance: NMGLatLng? {
+    didSet {
+      if let oldValue = oldValue,
+         let addRunningDistance = addRunningDistance {
+        totalDistance += oldValue.distance(to: addRunningDistance)
+      }
+    }
+  }
+  
+  private func observeSpeed() {
+    locationManager.fetchCurrentLocation()
+      .combineLatest(motionManager.fetchActiveMotion())
+      .filter { self.timerState == .active && $1 }
+      .compactMap { location, _ in
+        return location
+      }
+      .sink { [weak self] result in
+        self?.speed = result.speed
       }
       .store(in: &cancellable)
   }
@@ -93,6 +120,7 @@ final class RunViewModel: ObservableObject {
   }
   
   func timerStart() {
+    addRunningDistance = nil
     runPaths.append([NMGLatLng]())
     timerManager.start()
     timerState = .active
@@ -112,8 +140,8 @@ final class RunViewModel: ObservableObject {
 extension RunViewModel: MapAvailable {
   func setUp(mapView: NMFMapView) {
     mapViewDelegate.defaultSetting(mapView: mapView)
-    mapViewDelegate.firstLocation(mapView: mapView)
-    mapViewDelegate.focusRunLocation(mapView: mapView)
+    mapViewDelegate.focusFirstLocation(mapView: mapView)
+    mapViewDelegate.focusPathLocation(mapView: mapView)
     mapViewDelegate.updatePath(mapView: mapView)
   }
 }

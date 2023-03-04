@@ -8,32 +8,33 @@
 import Combine
 import NMapsMap
 
-struct RunViewDelegate: MapViewDelegate {
+struct MapOfRunViewDelegate: MapViewDelegate {
   let viewModel: RunViewModel
   
   func defaultSetting(mapView: NMFMapView) {
     mapView.zoomLevel = 17
     mapView.minZoomLevel = 13
   }
-  func firstLocation(mapView: NMFMapView) {
+  func focusFirstLocation(mapView: NMFMapView) {
     viewModel.$userLocation
       .compactMap { $0 }
       .first()
       .sink {
-        mapView.positionMode = .direction
         let cameraUpdate = NMFCameraUpdate(scrollTo: $0)
         mapView.moveCamera(cameraUpdate)
+        mapView.positionMode = .direction
       }
       .store(in: &viewModel.cancellable)
   }
   
-  func focusRunLocation(mapView: NMFMapView) {
+  func focusPathLocation(mapView: NMFMapView) {
     viewModel.$runPaths
       .compactMap { $0.last?.last }
       .sink {
         let cameraUpdate = NMFCameraUpdate(scrollTo: $0)
         cameraUpdate.animation = .easeOut
         mapView.moveCamera(cameraUpdate)
+        mapView.positionMode = .direction
       }
       .store(in: &viewModel.cancellable)
   }

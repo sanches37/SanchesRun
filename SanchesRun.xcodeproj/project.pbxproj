@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4D39C92C29B1AB9700D6BEAA /* MapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C92B29B1AB9700D6BEAA /* MapProtocol.swift */; };
-		4D39C92F29B1D69F00D6BEAA /* RunViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C92E29B1D69F00D6BEAA /* RunViewDelegate.swift */; };
+		4D39C92F29B1D69F00D6BEAA /* MapOfRunViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C92E29B1D69F00D6BEAA /* MapOfRunViewDelegate.swift */; };
 		4D39C93129B2D2DD00D6BEAA /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C93029B2D2DC00D6BEAA /* MotionManager.swift */; };
+		4D39C93329B36EA000D6BEAA /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C93229B36EA000D6BEAA /* Double.swift */; };
 		4D47FEE029AC8C5B00EBB956 /* SanchesRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEDF29AC8C5B00EBB956 /* SanchesRunApp.swift */; };
 		4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEE129AC8C5B00EBB956 /* ContentView.swift */; };
 		4D47FEE429AC8C5E00EBB956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */; };
@@ -30,8 +31,9 @@
 
 /* Begin PBXFileReference section */
 		4D39C92B29B1AB9700D6BEAA /* MapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProtocol.swift; sourceTree = "<group>"; };
-		4D39C92E29B1D69F00D6BEAA /* RunViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunViewDelegate.swift; sourceTree = "<group>"; };
+		4D39C92E29B1D69F00D6BEAA /* MapOfRunViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOfRunViewDelegate.swift; sourceTree = "<group>"; };
 		4D39C93029B2D2DC00D6BEAA /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
+		4D39C93229B36EA000D6BEAA /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		4D47FEDC29AC8C5B00EBB956 /* SanchesRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SanchesRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D47FEDF29AC8C5B00EBB956 /* SanchesRunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanchesRunApp.swift; sourceTree = "<group>"; };
 		4D47FEE129AC8C5B00EBB956 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				4D47FEF529AC97E600EBB956 /* RunViewModel.swift */,
-				4D39C92E29B1D69F00D6BEAA /* RunViewDelegate.swift */,
+				4D39C92E29B1D69F00D6BEAA /* MapOfRunViewDelegate.swift */,
 			);
 			path = RunViewModel;
 			sourceTree = "<group>";
@@ -170,6 +172,7 @@
 				4D47FEF829AC9D8600EBB956 /* ObservableObject.swift */,
 				4D6CAFFF29AF2F200094E69D /* TimeInterval.swift */,
 				4D6CB00729AF30C10094E69D /* Color.swift */,
+				4D39C93229B36EA000D6BEAA /* Double.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D39C93329B36EA000D6BEAA /* Double.swift in Sources */,
 				4D47FEF629AC97E600EBB956 /* RunViewModel.swift in Sources */,
 				4D6CB00029AF2F200094E69D /* TimeInterval.swift in Sources */,
 				4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */,
@@ -328,7 +332,7 @@
 				4D6CB00B29AF36E80094E69D /* MapView.swift in Sources */,
 				4D47FEF329AC97B900EBB956 /* RunView.swift in Sources */,
 				4D6CB00829AF30C10094E69D /* Color.swift in Sources */,
-				4D39C92F29B1D69F00D6BEAA /* RunViewDelegate.swift in Sources */,
+				4D39C92F29B1D69F00D6BEAA /* MapOfRunViewDelegate.swift in Sources */,
 				4D6CB00629AF30780094E69D /* FontSize.swift in Sources */,
 				4D39C92C29B1AB9700D6BEAA /* MapProtocol.swift in Sources */,
 				4D47FEF129AC901400EBB956 /* LocationManager.swift in Sources */,
