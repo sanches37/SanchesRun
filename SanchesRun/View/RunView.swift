@@ -24,10 +24,10 @@ struct RunView: View {
   private var runInfo: some View {
     HStack {
       VStack(spacing: 2) {
-        Text("속 도")
+        Text("평균 페이스")
           .fontSize(14)
           .foregroundColor(Color.lightslategray)
-        Text(viewModel.speed.meterStokmH)
+        Text(viewModel.averagePace.positionalTime)
           .fontSize(30)
           .foregroundColor(Color.primary)
       }

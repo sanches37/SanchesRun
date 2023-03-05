@@ -19,14 +19,14 @@ final class RunViewModel: ObservableObject {
   @Published private(set) var timerState: TimerState = .stop
   @Published private(set) var runPaths: [[NMGLatLng]] = []
   @Published private(set) var userLocation: NMGLatLng?
-  @Published private(set) var speed: Double = 0
   @Published private(set) var totalDistance: Double = 0
+  @Published private(set) var averagePace: TimeInterval = 0
   
   init() {
     fetchFirstLocation()
     fetchRunPaths()
     fetchRunPathsByTimerState()
-    observeSpeed()
+    fetchAveragePace()
   }
   
   private func fetchLocationOnce() -> AnyPublisher<NMGLatLng, Never> {
@@ -49,7 +49,7 @@ final class RunViewModel: ObservableObject {
       .store(in: &cancellable)
   }
   
-  private func fetchActiveLocation() -> AnyPublisher<CLLocation, Never> {
+  private func fetchRunPaths() {
     Publishers.CombineLatest(
       locationManager.observeLocation(),
       motionManager.observeActiveMotion()
@@ -58,26 +58,21 @@ final class RunViewModel: ObservableObject {
     .compactMap { location, _ in
       return location
     }
-    .eraseToAnyPublisher()
-  }
-  
-  private func fetchRunPaths() {
-    fetchActiveLocation()
-      .removeDuplicates { preValue, currentValue in
-        let difference = preValue.distance(from: currentValue)
-        let allowableDistance: Double = 15
-        return allowableDistance > difference
-      }
-      .map {
-        NMGLatLng(
-          lat: $0.coordinate.latitude,
-          lng: $0.coordinate.longitude
-        )
-      }
-      .sink { [weak self] result in
-        self?.updateRunPaths(location: result)
-      }
-      .store(in: &cancellable)
+    .removeDuplicates { preValue, currentValue in
+      let difference = preValue.distance(from: currentValue)
+      let allowableDistance: Double = 15
+      return allowableDistance > difference
+    }
+    .map {
+      NMGLatLng(
+        lat: $0.coordinate.latitude,
+        lng: $0.coordinate.longitude
+      )
+    }
+    .sink { [weak self] result in
+      self?.updateRunPaths(location: result)
+    }
+    .store(in: &cancellable)
   }
   
   private func fetchRunPathsByTimerState() {
@@ -88,7 +83,6 @@ final class RunViewModel: ObservableObject {
       }
       .sink { result in
         self.updateRunPaths(location: result)
-        self.speed = 0
       }
       .store(in: &cancellable)
   }
@@ -108,10 +102,17 @@ final class RunViewModel: ObservableObject {
     }
   }
   
-  private func observeSpeed() {
-    fetchActiveLocation()
+  private func fetchAveragePace() {
+    $totalDistance
+      .dropFirst()
+      .map { [weak self] distance in
+        guard let self = self,
+              distance != 0 else { return 0.0 }
+        let kmH = (distance / (self.time)) * 3.6
+        return (60 * 60) / kmH
+      }
       .sink { [weak self] result in
-        self?.speed = result.speed
+        self?.averagePace = result
       }
       .store(in: &cancellable)
   }

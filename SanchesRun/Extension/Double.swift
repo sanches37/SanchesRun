@@ -18,12 +18,4 @@ extension Double {
       return formatter.string(fromValue: value, unit: LengthFormatter.Unit.meter)
     }
   }
-  
-  var meterStokmH: String {
-    let formatter = MeasurementFormatter()
-    formatter.numberFormatter.maximumFractionDigits = 1
-    let kmPerHour = Double(self * 3.6)
-    let value = Measurement(value: kmPerHour, unit: UnitSpeed.kilometersPerHour)
-    return formatter.string(from: value)
-  }
 }
