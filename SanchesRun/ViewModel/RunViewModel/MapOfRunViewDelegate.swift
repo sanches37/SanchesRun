@@ -7,6 +7,7 @@
 
 import Combine
 import NMapsMap
+import SwiftUI
 
 struct MapOfRunViewDelegate: MapViewDelegate {
   let viewModel: RunViewModel
@@ -49,7 +50,7 @@ struct MapOfRunViewDelegate: MapViewDelegate {
         multipartPath.lineParts = $0.map {
           NMGLineString(points: $0)
         }
-        multipartPath.colorParts.append(NMFPathColor(color: UIColor.green))
+        multipartPath.colorParts.append(NMFPathColor(color: UIColor(Color.mediumseagreen)))
         multipartPath.mapView = mapView
       }
       .store(in: &viewModel.cancellable)

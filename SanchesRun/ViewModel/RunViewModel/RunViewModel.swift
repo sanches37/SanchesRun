@@ -20,7 +20,7 @@ final class RunViewModel: ObservableObject {
   @Published private(set) var runPaths: [[NMGLatLng]] = []
   @Published private(set) var userLocation: NMGLatLng?
   @Published private(set) var totalDistance: Double = 0
-  @Published private(set) var averagePace: TimeInterval = 0
+  @Published private(set) var oneKilometerPace: TimeInterval = 0
   
   init() {
     fetchFirstLocation()
@@ -55,9 +55,7 @@ final class RunViewModel: ObservableObject {
       motionManager.observeActiveMotion()
     )
     .filter { self.timerState == .active && $1 }
-    .compactMap { location, _ in
-      return location
-    }
+    .compactMap { location, _ in location }
     .removeDuplicates { preValue, currentValue in
       let difference = preValue.distance(from: currentValue)
       let allowableDistance: Double = 15
@@ -108,11 +106,11 @@ final class RunViewModel: ObservableObject {
       .map { [weak self] distance in
         guard let self = self,
               distance != 0 else { return 0.0 }
-        let kmH = (distance / (self.time)) * 3.6
-        return (60 * 60) / kmH
+        let meterPerSecond = distance / self.time
+        return 1000 / meterPerSecond
       }
       .sink { [weak self] result in
-        self?.averagePace = result
+        self?.oneKilometerPace = result
       }
       .store(in: &cancellable)
   }
@@ -120,6 +118,8 @@ final class RunViewModel: ObservableObject {
   func timerReset() {
     timerState = .stop
     self.time = timerManager.reset
+    self.totalDistance = 0
+    self.runPaths.removeAll()
   }
   
   func timerStart() {
