@@ -11,6 +11,10 @@
 		4D39C92F29B1D69F00D6BEAA /* MapOfRunViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C92E29B1D69F00D6BEAA /* MapOfRunViewDelegate.swift */; };
 		4D39C93129B2D2DD00D6BEAA /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C93029B2D2DC00D6BEAA /* MotionManager.swift */; };
 		4D39C93329B36EA000D6BEAA /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C93229B36EA000D6BEAA /* Double.swift */; };
+		4D39C95829B5A1B900D6BEAA /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C95729B5A1B900D6BEAA /* PersistenceController.swift */; };
+		4D39C95B29B5A4A200D6BEAA /* SanchesRun.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C95929B5A4A200D6BEAA /* SanchesRun.xcdatamodeld */; };
+		4D39C95D29B5A51F00D6BEAA /* NMGLatLngTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C95C29B5A51F00D6BEAA /* NMGLatLngTransformer.swift */; };
+		4D39C96129B5AE2D00D6BEAA /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C95F29B5AE2D00D6BEAA /* Run+CoreDataProperties.swift */; };
 		4D47FEE029AC8C5B00EBB956 /* SanchesRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEDF29AC8C5B00EBB956 /* SanchesRunApp.swift */; };
 		4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEE129AC8C5B00EBB956 /* ContentView.swift */; };
 		4D47FEE429AC8C5E00EBB956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */; };
@@ -26,6 +30,7 @@
 		4D6CB00629AF30780094E69D /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00529AF30780094E69D /* FontSize.swift */; };
 		4D6CB00829AF30C10094E69D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00729AF30C10094E69D /* Color.swift */; };
 		4D6CB00B29AF36E80094E69D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00A29AF36E80094E69D /* MapView.swift */; };
+		4DF987E929B61E7500894C53 /* NMGLatLng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF987E829B61E7500894C53 /* NMGLatLng.swift */; };
 		84BF2AF48C913AE8F53DE097 /* Pods_SanchesRun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAD1F40AB099B030F14D292 /* Pods_SanchesRun.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +39,10 @@
 		4D39C92E29B1D69F00D6BEAA /* MapOfRunViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOfRunViewDelegate.swift; sourceTree = "<group>"; };
 		4D39C93029B2D2DC00D6BEAA /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		4D39C93229B36EA000D6BEAA /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		4D39C95729B5A1B900D6BEAA /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		4D39C95A29B5A4A200D6BEAA /* SanchesRun.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SanchesRun.xcdatamodel; sourceTree = "<group>"; };
+		4D39C95C29B5A51F00D6BEAA /* NMGLatLngTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMGLatLngTransformer.swift; sourceTree = "<group>"; };
+		4D39C95F29B5AE2D00D6BEAA /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Run+CoreDataProperties.swift"; path = "/Users/taehoonpark/Desktop/Project/SanchesRun/SanchesRun/CoreData/Run+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		4D47FEDC29AC8C5B00EBB956 /* SanchesRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SanchesRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D47FEDF29AC8C5B00EBB956 /* SanchesRunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanchesRunApp.swift; sourceTree = "<group>"; };
 		4D47FEE129AC8C5B00EBB956 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +60,7 @@
 		4D6CB00529AF30780094E69D /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		4D6CB00729AF30C10094E69D /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4D6CB00A29AF36E80094E69D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		4DF987E829B61E7500894C53 /* NMGLatLng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMGLatLng.swift; sourceTree = "<group>"; };
 		50EB442215449E6A960657A0 /* Pods-SanchesRun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SanchesRun.debug.xcconfig"; path = "Target Support Files/Pods-SanchesRun/Pods-SanchesRun.debug.xcconfig"; sourceTree = "<group>"; };
 		51D284E38E3626B63EBCF4AF /* Pods-SanchesRun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SanchesRun.release.xcconfig"; path = "Target Support Files/Pods-SanchesRun/Pods-SanchesRun.release.xcconfig"; sourceTree = "<group>"; };
 		8AAD1F40AB099B030F14D292 /* Pods_SanchesRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SanchesRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +95,17 @@
 			path = RunViewModel;
 			sourceTree = "<group>";
 		};
+		4D39C95629B5A13F00D6BEAA /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4D39C95F29B5AE2D00D6BEAA /* Run+CoreDataProperties.swift */,
+				4D39C95729B5A1B900D6BEAA /* PersistenceController.swift */,
+				4D39C95929B5A4A200D6BEAA /* SanchesRun.xcdatamodeld */,
+				4D39C95C29B5A51F00D6BEAA /* NMGLatLngTransformer.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		4D47FED329AC8C5B00EBB956 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +131,7 @@
 				4D47FEED29AC8E8E00EBB956 /* Application */,
 				4D47FEF429AC97CB00EBB956 /* ViewModel */,
 				4D47FEEE29AC8EA300EBB956 /* View */,
+				4D39C95629B5A13F00D6BEAA /* CoreData */,
 				4D47FEEF29AC8FFA00EBB956 /* Manager */,
 				4D39C92A29B1AB4600D6BEAA /* Protocol */,
 				4D47FEF729AC9D5900EBB956 /* Extension */,
@@ -173,6 +195,7 @@
 				4D6CAFFF29AF2F200094E69D /* TimeInterval.swift */,
 				4D6CB00729AF30C10094E69D /* Color.swift */,
 				4D39C93229B36EA000D6BEAA /* Double.swift */,
+				4DF987E829B61E7500894C53 /* NMGLatLng.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -324,15 +347,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D39C95B29B5A4A200D6BEAA /* SanchesRun.xcdatamodeld in Sources */,
+				4D39C96129B5AE2D00D6BEAA /* Run+CoreDataProperties.swift in Sources */,
 				4D39C93329B36EA000D6BEAA /* Double.swift in Sources */,
 				4D47FEF629AC97E600EBB956 /* RunViewModel.swift in Sources */,
 				4D6CB00029AF2F200094E69D /* TimeInterval.swift in Sources */,
+				4D39C95D29B5A51F00D6BEAA /* NMGLatLngTransformer.swift in Sources */,
 				4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */,
 				4D47FEE029AC8C5B00EBB956 /* SanchesRunApp.swift in Sources */,
 				4D6CB00B29AF36E80094E69D /* MapView.swift in Sources */,
 				4D47FEF329AC97B900EBB956 /* RunView.swift in Sources */,
 				4D6CB00829AF30C10094E69D /* Color.swift in Sources */,
 				4D39C92F29B1D69F00D6BEAA /* MapOfRunViewDelegate.swift in Sources */,
+				4DF987E929B61E7500894C53 /* NMGLatLng.swift in Sources */,
+				4D39C95829B5A1B900D6BEAA /* PersistenceController.swift in Sources */,
 				4D6CB00629AF30780094E69D /* FontSize.swift in Sources */,
 				4D39C92C29B1AB9700D6BEAA /* MapProtocol.swift in Sources */,
 				4D47FEF129AC901400EBB956 /* LocationManager.swift in Sources */,
@@ -551,6 +579,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4D39C95929B5A4A200D6BEAA /* SanchesRun.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4D39C95A29B5A4A200D6BEAA /* SanchesRun.xcdatamodel */,
+			);
+			currentVersion = 4D39C95A29B5A4A200D6BEAA /* SanchesRun.xcdatamodel */;
+			path = SanchesRun.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4D47FED429AC8C5B00EBB956 /* Project object */;
 }

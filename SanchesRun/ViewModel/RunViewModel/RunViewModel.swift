@@ -117,9 +117,7 @@ final class RunViewModel: ObservableObject {
   
   func timerReset() {
     timerState = .stop
-    self.time = timerManager.reset
-    self.totalDistance = 0
-    self.runPaths.removeAll()
+    saveRun()
   }
   
   func timerStart() {
@@ -137,6 +135,15 @@ final class RunViewModel: ObservableObject {
   func timerPause() {
     timerState = .pause
     timerManager.pause()
+  }
+  
+  private func saveRun() {
+    let run = Run(context: PersistenceController.shared.viewContext)
+    run.runPaths = self.runPaths
+    run.activeTime = self.time
+    run.totalDistance = self.totalDistance
+    run.averagePace = self.oneKilometerPace
+    PersistenceController.shared.save()
   }
 }
 

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RunView: View {
   @StateObject private var viewModel = RunViewModel()
+  @Environment(\.managedObjectContext) var viewContext
+
   var body: some View {
     VStack(spacing: 12) {
       MapView<RunViewModel>()

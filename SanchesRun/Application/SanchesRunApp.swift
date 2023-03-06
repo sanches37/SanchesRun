@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct SanchesRunApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      ContentView()
+        .environment(
+          \.managedObjectContext,
+           PersistenceController.shared.container.viewContext)
     }
+  }
 }
