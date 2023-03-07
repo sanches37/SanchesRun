@@ -3,7 +3,7 @@
     <entity name="Run" representedClassName="Run" syncable="YES">
         <attribute name="activeTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="averagePace" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="runPaths" optional="YES" attributeType="Transformable" valueTransformerName="NMGLatLngTransformer" customClassName="[[NMGLatLng]]"/>
+        <attribute name="runPaths" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="[[CLLocation]]"/>
         <attribute name="totalDistance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
 </model>

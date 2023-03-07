@@ -19,6 +19,12 @@ struct MapOfRunViewDelegate: MapViewDelegate {
   func focusFirstLocation(mapView: NMFMapView) {
     viewModel.$userLocation
       .compactMap { $0 }
+      .map {
+        NMGLatLng(
+          lat: $0.coordinate.latitude,
+          lng: $0.coordinate.longitude
+        )
+      }
       .first()
       .sink {
         let cameraUpdate = NMFCameraUpdate(scrollTo: $0)
@@ -31,6 +37,12 @@ struct MapOfRunViewDelegate: MapViewDelegate {
   func focusPathLocation(mapView: NMFMapView) {
     viewModel.$runPaths
       .compactMap { $0.last?.last }
+      .map {
+        NMGLatLng(
+          lat: $0.coordinate.latitude,
+          lng: $0.coordinate.longitude
+        )
+      }
       .sink {
         let cameraUpdate = NMFCameraUpdate(scrollTo: $0)
         cameraUpdate.animation = .easeOut
@@ -45,6 +57,14 @@ struct MapOfRunViewDelegate: MapViewDelegate {
     multipartPath.width = 10
     viewModel.$runPaths
       .filter { !($0.last?.isEmpty ?? true) }
+      .map {
+        $0.map { $0.map {
+          NMGLatLng(
+            lat: $0.coordinate.latitude,
+            lng: $0.coordinate.longitude
+          )}
+        }
+      }
       .sink {
         multipartPath.mapView = nil
         multipartPath.lineParts = $0.map {

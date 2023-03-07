@@ -10,6 +10,7 @@ import SwiftUI
 struct RunView: View {
   @StateObject private var viewModel = RunViewModel()
   @Environment(\.managedObjectContext) var viewContext
+  @State private var shouldShowRunResultView = false
 
   var body: some View {
     VStack(spacing: 12) {
@@ -21,6 +22,12 @@ struct RunView: View {
     .padding(.bottom, 20)
     .edgesIgnoringSafeArea(.top)
     .environmentObject(viewModel)
+    .fullScreenCover(isPresented:$shouldShowRunResultView) {
+      RunResultView()
+    }
+    .onChange(of: viewModel.shouldShowRunResultView) {
+      self.shouldShowRunResultView = $0
+    }
   }
   
   private var runInfo: some View {

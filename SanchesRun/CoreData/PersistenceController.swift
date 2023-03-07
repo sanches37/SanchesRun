@@ -15,14 +15,12 @@ struct PersistenceController {
   }
   
   private init() {
-    NMGLatLngTransformer.register()
     container = NSPersistentContainer(name: "SanchesRun")
     container.loadPersistentStores { storeDescription, error in
       if let nserror = error as NSError? {
         fatalError("Unresolved error: \(nserror), \(nserror.userInfo)")
       }
     }
-    container.viewContext.automaticallyMergesChangesFromParent = true
   }
   
   func save() {

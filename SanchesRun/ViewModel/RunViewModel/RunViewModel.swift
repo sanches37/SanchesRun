@@ -17,10 +17,11 @@ final class RunViewModel: ObservableObject {
   
   @Published private(set) var time: TimeInterval = 0
   @Published private(set) var timerState: TimerState = .stop
-  @Published private(set) var runPaths: [[NMGLatLng]] = []
-  @Published private(set) var userLocation: NMGLatLng?
+  @Published private(set) var runPaths: [[CLLocation]] = []
+  @Published private(set) var userLocation: CLLocation?
   @Published private(set) var totalDistance: Double = 0
   @Published private(set) var oneKilometerPace: TimeInterval = 0
+  @Published var shouldShowRunResultView = false
   
   init() {
     fetchFirstLocation()
@@ -29,15 +30,10 @@ final class RunViewModel: ObservableObject {
     fetchAveragePace()
   }
   
-  private func fetchLocationOnce() -> AnyPublisher<NMGLatLng, Never> {
+  private func fetchLocationOnce() -> AnyPublisher<CLLocation, Never> {
     locationManager.observeLocation()
       .compactMap { $0 }
       .first()
-      .flatMap {
-        return Just(
-          NMGLatLng(lat: $0.coordinate.latitude, lng: $0.coordinate.longitude)
-        )
-      }
       .eraseToAnyPublisher()
   }
   
@@ -61,12 +57,6 @@ final class RunViewModel: ObservableObject {
       let allowableDistance: Double = 15
       return allowableDistance > difference
     }
-    .map {
-      NMGLatLng(
-        lat: $0.coordinate.latitude,
-        lng: $0.coordinate.longitude
-      )
-    }
     .sink { [weak self] result in
       self?.updateRunPaths(location: result)
     }
@@ -85,17 +75,17 @@ final class RunViewModel: ObservableObject {
       .store(in: &cancellable)
   }
   
-  private func updateRunPaths(location: NMGLatLng) {
+  private func updateRunPaths(location: CLLocation) {
     guard !runPaths.isEmpty else { return }
     runPaths[runPaths.count - 1].append(location)
     addRunningDistance = location
   }
   
-  private var addRunningDistance: NMGLatLng? {
+  private var addRunningDistance: CLLocation? {
     didSet {
       if let oldValue = oldValue,
          let addRunningDistance = addRunningDistance {
-        totalDistance += oldValue.distance(to: addRunningDistance)
+        totalDistance += oldValue.distance(from: addRunningDistance)
       }
     }
   }
@@ -118,11 +108,12 @@ final class RunViewModel: ObservableObject {
   func timerReset() {
     timerState = .stop
     saveRun()
+    self.shouldShowRunResultView.toggle()
   }
   
   func timerStart() {
     addRunningDistance = nil
-    runPaths.append([NMGLatLng]())
+    runPaths.append([CLLocation]())
     timerManager.start()
     timerState = .active
   }
