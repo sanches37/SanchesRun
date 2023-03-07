@@ -21,7 +21,8 @@ final class RunViewModel: ObservableObject {
   @Published private(set) var userLocation: CLLocation?
   @Published private(set) var totalDistance: Double = 0
   @Published private(set) var oneKilometerPace: TimeInterval = 0
-  @Published var shouldShowRunResultView = false
+  @Published private(set) var shouldShowRunResultView = false
+  private var startDate: Date?
   
   init() {
     fetchFirstLocation()
@@ -95,7 +96,7 @@ final class RunViewModel: ObservableObject {
       .dropFirst()
       .map { [weak self] distance in
         guard let self = self,
-              distance != 0 else { return 0.0 }
+              distance != 0 else { return 0 }
         let meterPerSecond = distance / self.time
         return 1000 / meterPerSecond
       }
@@ -109,12 +110,14 @@ final class RunViewModel: ObservableObject {
     timerState = .stop
     saveRun()
     self.shouldShowRunResultView.toggle()
+    self.startDate = nil
   }
   
   func timerStart() {
     addRunningDistance = nil
     runPaths.append([CLLocation]())
     timerManager.start()
+    saveStartDate()
     timerState = .active
   }
   
@@ -130,11 +133,19 @@ final class RunViewModel: ObservableObject {
   
   private func saveRun() {
     let run = Run(context: PersistenceController.shared.viewContext)
+    run.id = UUID().uuidString
+    run.startDate = self.startDate
     run.runPaths = self.runPaths
     run.activeTime = self.time
     run.totalDistance = self.totalDistance
     run.averagePace = self.oneKilometerPace
     PersistenceController.shared.save()
+  }
+  
+  private func saveStartDate() {
+    if startDate == nil {
+      startDate = Date()
+    }
   }
 }
 

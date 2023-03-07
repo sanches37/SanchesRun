@@ -31,7 +31,7 @@
 		4DF987ED29B6269900894C53 /* RunResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF987EC29B6269900894C53 /* RunResultView.swift */; };
 		4DF987EF29B6277600894C53 /* RunResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF987EE29B6277600894C53 /* RunResultViewModel.swift */; };
 		4DF987F229B6280700894C53 /* MapOfRunResultViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF987F129B6280700894C53 /* MapOfRunResultViewDelegate.swift */; };
-		4DF9881A29B7122C00894C53 /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9881829B7122C00894C53 /* Run+CoreDataProperties.swift */; };
+		4DF9881F29B7862B00894C53 /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9881D29B7862A00894C53 /* Run+CoreDataProperties.swift */; };
 		84BF2AF48C913AE8F53DE097 /* Pods_SanchesRun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAD1F40AB099B030F14D292 /* Pods_SanchesRun.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +62,7 @@
 		4DF987EC29B6269900894C53 /* RunResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunResultView.swift; sourceTree = "<group>"; };
 		4DF987EE29B6277600894C53 /* RunResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunResultViewModel.swift; sourceTree = "<group>"; };
 		4DF987F129B6280700894C53 /* MapOfRunResultViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOfRunResultViewDelegate.swift; sourceTree = "<group>"; };
-		4DF9881829B7122C00894C53 /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Run+CoreDataProperties.swift"; path = "/Users/taehoonpark/Desktop/Project/SanchesRun/SanchesRun/CoreData/Run+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		4DF9881D29B7862A00894C53 /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Run+CoreDataProperties.swift"; path = "/Users/taehoonpark/Desktop/Project/SanchesRun/SanchesRun/CoreData/Run+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		50EB442215449E6A960657A0 /* Pods-SanchesRun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SanchesRun.debug.xcconfig"; path = "Target Support Files/Pods-SanchesRun/Pods-SanchesRun.debug.xcconfig"; sourceTree = "<group>"; };
 		51D284E38E3626B63EBCF4AF /* Pods-SanchesRun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SanchesRun.release.xcconfig"; path = "Target Support Files/Pods-SanchesRun/Pods-SanchesRun.release.xcconfig"; sourceTree = "<group>"; };
 		8AAD1F40AB099B030F14D292 /* Pods_SanchesRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SanchesRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,7 +100,6 @@
 		4D39C95629B5A13F00D6BEAA /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				4DF9881829B7122C00894C53 /* Run+CoreDataProperties.swift */,
 				4D39C95729B5A1B900D6BEAA /* PersistenceController.swift */,
 				4D39C95929B5A4A200D6BEAA /* SanchesRun.xcdatamodeld */,
 			);
@@ -130,6 +129,7 @@
 			children = (
 				4D47FF0129AEA53600EBB956 /* Info.plist */,
 				4D47FEED29AC8E8E00EBB956 /* Application */,
+				4DF9881B29B783B800894C53 /* Model */,
 				4D47FEF429AC97CB00EBB956 /* ViewModel */,
 				4D47FEEE29AC8EA300EBB956 /* View */,
 				4D39C95629B5A13F00D6BEAA /* CoreData */,
@@ -225,6 +225,14 @@
 				4DF987F129B6280700894C53 /* MapOfRunResultViewDelegate.swift */,
 			);
 			path = RunResultViewModel;
+			sourceTree = "<group>";
+		};
+		4DF9881B29B783B800894C53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4DF9881D29B7862A00894C53 /* Run+CoreDataProperties.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		822CF396503D9285C21754D3 /* Pods */ = {
@@ -365,7 +373,6 @@
 				4D6CB00029AF2F200094E69D /* TimeInterval.swift in Sources */,
 				4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */,
 				4DF987ED29B6269900894C53 /* RunResultView.swift in Sources */,
-				4DF9881A29B7122C00894C53 /* Run+CoreDataProperties.swift in Sources */,
 				4DF987F229B6280700894C53 /* MapOfRunResultViewDelegate.swift in Sources */,
 				4D47FEE029AC8C5B00EBB956 /* SanchesRunApp.swift in Sources */,
 				4D6CB00B29AF36E80094E69D /* MapView.swift in Sources */,
@@ -374,6 +381,7 @@
 				4D39C92F29B1D69F00D6BEAA /* MapOfRunViewDelegate.swift in Sources */,
 				4D39C95829B5A1B900D6BEAA /* PersistenceController.swift in Sources */,
 				4D6CB00629AF30780094E69D /* FontSize.swift in Sources */,
+				4DF9881F29B7862B00894C53 /* Run+CoreDataProperties.swift in Sources */,
 				4D39C92C29B1AB9700D6BEAA /* MapProtocol.swift in Sources */,
 				4D47FEF129AC901400EBB956 /* LocationManager.swift in Sources */,
 				4D6CB00329AF30520094E69D /* PrimaryButtonStyle.swift in Sources */,

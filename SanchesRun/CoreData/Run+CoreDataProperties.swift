@@ -17,8 +17,12 @@ extension Run {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Run> {
         return NSFetchRequest<Run>(entityName: "Run")
     }
+
     @NSManaged public var activeTime: Double
     @NSManaged public var averagePace: Double
-    @NSManaged public var totalDistance: Double
     @NSManaged public var runPaths: [[CLLocation]]
+    @NSManaged public var totalDistance: Double
+    @NSManaged public var startDate: Date?
+    @NSManaged public var id: String?
+
 }
