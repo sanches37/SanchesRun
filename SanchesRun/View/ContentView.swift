@@ -7,8 +7,28 @@
 
 import SwiftUI
 
+enum ViewTab {
+  case run
+  case record
+}
+
 struct ContentView: View {
+  @State private var selection: ViewTab = .run
+  
   var body: some View {
-    RunView()
+    NavigationView {
+      TabView(selection: $selection) {
+        RunView()
+          .tag(ViewTab.run)
+          .tabItem {
+            Image(systemName: "figure.walk")
+          }
+        RunResultView()
+          .tag(ViewTab.record)
+          .tabItem {
+            Image(systemName: "calendar")
+          }
+      }
+    }
   }
 }
