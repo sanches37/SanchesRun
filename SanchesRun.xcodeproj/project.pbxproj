@@ -32,6 +32,8 @@
 		4DF987EF29B6277600894C53 /* RunResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF987EE29B6277600894C53 /* RunResultViewModel.swift */; };
 		4DF987F229B6280700894C53 /* MapOfRunResultViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF987F129B6280700894C53 /* MapOfRunResultViewDelegate.swift */; };
 		4DF9881F29B7862B00894C53 /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9881D29B7862A00894C53 /* Run+CoreDataProperties.swift */; };
+		4DF9882129B7901700894C53 /* RecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9882029B7901700894C53 /* RecordListView.swift */; };
+		4DF9882329B7997100894C53 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9882229B7997100894C53 /* Date.swift */; };
 		84BF2AF48C913AE8F53DE097 /* Pods_SanchesRun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAD1F40AB099B030F14D292 /* Pods_SanchesRun.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,8 @@
 		4DF987EE29B6277600894C53 /* RunResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunResultViewModel.swift; sourceTree = "<group>"; };
 		4DF987F129B6280700894C53 /* MapOfRunResultViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOfRunResultViewDelegate.swift; sourceTree = "<group>"; };
 		4DF9881D29B7862A00894C53 /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Run+CoreDataProperties.swift"; path = "/Users/taehoonpark/Desktop/Project/SanchesRun/SanchesRun/CoreData/Run+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		4DF9882029B7901700894C53 /* RecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListView.swift; sourceTree = "<group>"; };
+		4DF9882229B7997100894C53 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		50EB442215449E6A960657A0 /* Pods-SanchesRun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SanchesRun.debug.xcconfig"; path = "Target Support Files/Pods-SanchesRun/Pods-SanchesRun.debug.xcconfig"; sourceTree = "<group>"; };
 		51D284E38E3626B63EBCF4AF /* Pods-SanchesRun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SanchesRun.release.xcconfig"; path = "Target Support Files/Pods-SanchesRun/Pods-SanchesRun.release.xcconfig"; sourceTree = "<group>"; };
 		8AAD1F40AB099B030F14D292 /* Pods_SanchesRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SanchesRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +170,7 @@
 				4D6CB00A29AF36E80094E69D /* MapView.swift */,
 				4D6CAFFD29AF2D1C0094E69D /* TimerView.swift */,
 				4DF987EC29B6269900894C53 /* RunResultView.swift */,
+				4DF9882029B7901700894C53 /* RecordListView.swift */,
 				4D6CB00129AF30160094E69D /* CommonView */,
 				4D6CB00429AF30630094E69D /* ViewModifier */,
 			);
@@ -198,6 +203,7 @@
 				4D6CAFFF29AF2F200094E69D /* TimeInterval.swift */,
 				4D6CB00729AF30C10094E69D /* Color.swift */,
 				4D39C93229B36EA000D6BEAA /* Double.swift */,
+				4DF9882229B7997100894C53 /* Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -371,6 +377,8 @@
 				4DF987EF29B6277600894C53 /* RunResultViewModel.swift in Sources */,
 				4D47FEF629AC97E600EBB956 /* RunViewModel.swift in Sources */,
 				4D6CB00029AF2F200094E69D /* TimeInterval.swift in Sources */,
+				4DF9882129B7901700894C53 /* RecordListView.swift in Sources */,
+				4DF9882329B7997100894C53 /* Date.swift in Sources */,
 				4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */,
 				4DF987ED29B6269900894C53 /* RunResultView.swift in Sources */,
 				4DF987F229B6280700894C53 /* MapOfRunResultViewDelegate.swift in Sources */,

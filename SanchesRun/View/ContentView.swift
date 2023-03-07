@@ -23,7 +23,7 @@ struct ContentView: View {
           .tabItem {
             Image(systemName: "figure.walk")
           }
-        RunResultView()
+        RecordListView()
           .tag(ViewTab.record)
           .tabItem {
             Image(systemName: "calendar")
