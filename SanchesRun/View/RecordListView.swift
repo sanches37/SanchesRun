@@ -14,10 +14,15 @@ struct RecordListView: View {
     sortDescriptors: [NSSortDescriptor(keyPath: \Run.startDate, ascending: true)],
     animation: .default) private var runs: FetchedResults<Run>
   @State private var selectedDate = Date()
-  
   var body: some View {
     VStack {
-      datePicker
+      CustomDatePicker(
+        currentDate: $selectedDate,
+        runingDates: Binding<[Date]>(
+          get: { runs.map(\.wrappedStartDate) },
+          set: { _ in }
+        )
+      )
       List {
         ForEach(
           runs.filter {
@@ -26,18 +31,9 @@ struct RecordListView: View {
             recordRow(run: run)
           }
       }
+      Spacer()
     }
     .padding()
-  }
-  
-  private var datePicker: some View {
-    DatePicker(
-      "DatePicker",
-      selection: $selectedDate,
-      displayedComponents: [.date]
-    )
-    .datePickerStyle(.graphical)
-    .environment(\.locale, Locale.init(identifier: "ko_KR"))
   }
   
   private func recordRow(run: Run) -> some View {
