@@ -19,12 +19,14 @@ struct TimerView: View {
   private let timer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
   
   var body: some View {
-    VStack {
+    VStack(spacing: 14) {
       Text(viewModel.time.positionalTime)
         .fontSize(46)
         .foregroundColor(Color.primary)
       HStack(spacing: 16) {
-        endButton
+        if viewModel.timerState != .active {
+          endButton
+        }
         viewModel.timerState == .active ?
         AnyView(pauseButton) : AnyView(startButton)
       }
@@ -41,7 +43,7 @@ struct TimerView: View {
   
   private var endButton: some View {
     Button {
-      shouldShowEndAlert = true
+      shouldShowEndAlert.toggle()
     } label: {
       Text("완 료")
         .frame(maxWidth: .infinity)

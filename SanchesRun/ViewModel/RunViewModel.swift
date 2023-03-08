@@ -14,6 +14,7 @@ final class RunViewModel: ObservableObject {
   private let timerManager = TimerManager()
   private let motionManager = MotionManager()
   private var cancellable = Set<AnyCancellable>()
+  private let multipartPath = NMFMultipartPath()
   
   @Published private(set) var time: TimeInterval = 0
   @Published private(set) var timerState: TimerState = .stop
@@ -65,6 +66,7 @@ final class RunViewModel: ObservableObject {
   
   private func fetchRunPathsByTimerState() {
     $timerState
+      .filter{ $0 != .stop }
       .flatMap { _ in
         self.fetchLocationOnce()
       }
@@ -160,6 +162,7 @@ extension RunViewModel: MapAvailable {
     focusFirstLocation(mapView: mapView)
     focusPathLocation(mapView: mapView)
     updatePath(mapView: mapView)
+    resetPath(mapView: mapView)
   }
   
   private func defaultSetting(mapView: NMFMapView) {
@@ -203,10 +206,9 @@ extension RunViewModel: MapAvailable {
   }
   
   private func updatePath(mapView: NMFMapView) {
-    let multipartPath = NMFMultipartPath()
     multipartPath.width = 10
     $runPaths
-      .dropFirst()
+      .filter { !($0.last?.isEmpty ?? false) }
       .map {
         $0.map { $0.map {
           NMGLatLng(
@@ -215,16 +217,28 @@ extension RunViewModel: MapAvailable {
           )}
         }
       }
-      .sink {
-        multipartPath.mapView = nil
-        if let array = $0.last,
-           !array.isEmpty {
-          multipartPath.lineParts = $0.map {
-            NMGLineString(points: $0)
-          }
-          multipartPath.colorParts.append(NMFPathColor(color: UIColor(Color.mediumseagreen)))
+      .sink { [weak self] result in
+        guard let self = self else { return }
+        self.multipartPath.mapView = nil
+        self.multipartPath.lineParts = result.map {
+          NMGLineString(points: $0)
         }
-        multipartPath.mapView = mapView
+        self.multipartPath.colorParts.append(
+          NMFPathColor(color: UIColor(Color.mediumseagreen))
+        )
+        self.multipartPath.mapView = mapView
+      }
+      .store(in: &cancellable)
+  }
+  
+  private func resetPath(mapView: NMFMapView) {
+    $runPaths
+      .dropFirst()
+      .filter { $0.isEmpty }
+      .sink { [weak self] _ in
+        guard let self = self else { return }
+        self.multipartPath.mapView = nil
+        self.multipartPath.mapView = mapView
       }
       .store(in: &cancellable)
   }

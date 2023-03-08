@@ -34,7 +34,7 @@ class RecordViewModel: ObservableObject, MapAvailable {
     let multipartPath = NMFMultipartPath()
     multipartPath.width = 10
     $runPaths
-      .filter { !($0.last?.isEmpty ?? true) }
+      .filter { !($0.last?.isEmpty ?? false) }
       .first()
       .map {
         $0.map { $0.map {
@@ -57,7 +57,7 @@ class RecordViewModel: ObservableObject, MapAvailable {
   
   func focusPathLocation(mapView: NMFMapView) {
     $runPaths
-      .filter { !($0.last?.isEmpty ?? true) }
+      .filter { !($0.last?.isEmpty ?? false) }
       .first()
       .map {
         let array = $0.flatMap { $0 }
