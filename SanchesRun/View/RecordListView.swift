@@ -24,12 +24,16 @@ struct RecordListView: View {
         )
       )
       List {
-        ForEach(
-          runs.filter {
-            $0.wrappedStartDate.toDateTimeString() == selectedDate.toDateTimeString()
-          }, id: \.id) { run in
+        ForEach(runs.filter {
+          $0.wrappedStartDate.toDateTimeString() == selectedDate.toDateTimeString()
+        }, id: \.id) { run in
+          NavigationLink {
+            RecordView(run: run)
+          } label: {
             recordRow(run: run)
           }
+          
+        }
       }
       Spacer()
     }

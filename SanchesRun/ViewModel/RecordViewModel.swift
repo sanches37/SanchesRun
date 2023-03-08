@@ -1,5 +1,5 @@
 //
-//  MapOfRunResultViewDelegate.swift
+//  RunResultViewModel.swift
 //  SanchesRun
 //
 //  Created by tae hoon park on 2023/03/06.
@@ -9,9 +9,22 @@ import Combine
 import NMapsMap
 import SwiftUI
 
-struct MapOfRunResultViewDelegate: MapViewDelegate {
-  let viewModel: RunResultViewModel
+class RecordViewModel: ObservableObject, MapAvailable {
+  @Published var runPaths: [[CLLocation]] = []
+  private var cancellable = Set<AnyCancellable>()
+  init(runPaths: [[CLLocation]]) {
+    self.runPaths = runPaths
+  }
   
+  deinit {
+    print("RecordViewModel deinit")
+  }
+  
+  func setUp(mapView: NMFMapView) {
+    defaultSetting(mapView: mapView)
+    focusPathLocation(mapView: mapView)
+    updatePath(mapView: mapView)
+  }
   func defaultSetting(mapView: NMFMapView) {
     mapView.zoomLevel = 14
     mapView.minZoomLevel = 13
@@ -20,8 +33,9 @@ struct MapOfRunResultViewDelegate: MapViewDelegate {
   func updatePath(mapView: NMFMapView) {
     let multipartPath = NMFMultipartPath()
     multipartPath.width = 10
-    viewModel.$runPaths
+    $runPaths
       .filter { !($0.last?.isEmpty ?? true) }
+      .first()
       .map {
         $0.map { $0.map {
           NMGLatLng(
@@ -38,12 +52,13 @@ struct MapOfRunResultViewDelegate: MapViewDelegate {
         multipartPath.colorParts.append(NMFPathColor(color: UIColor(Color.mediumseagreen)))
         multipartPath.mapView = mapView
       }
-      .store(in: &viewModel.cancellable)
+      .store(in: &cancellable)
   }
   
   func focusPathLocation(mapView: NMFMapView) {
-    viewModel.$runPaths
+    $runPaths
       .filter { !($0.last?.isEmpty ?? true) }
+      .first()
       .map {
         let array = $0.flatMap { $0 }
         let centerLat =
@@ -51,19 +66,19 @@ struct MapOfRunResultViewDelegate: MapViewDelegate {
           .reduce(0) { result, location in
             result + location.coordinate.latitude
           } / Double(array.count)
-        
+
         let centerLng =
         array
           .reduce(0) { result, location in
             result + location.coordinate.longitude
           } / Double(array.count)
-        
+
         return NMGLatLng(lat: centerLat, lng: centerLng)
       }
       .sink {
         let cameraUpdate = NMFCameraUpdate(scrollTo: $0)
         mapView.moveCamera(cameraUpdate)
       }
-      .store(in: &viewModel.cancellable)
+      .store(in: &cancellable)
   }
 }

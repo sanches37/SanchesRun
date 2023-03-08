@@ -10,8 +10,3 @@ import NMapsMap
 protocol MapAvailable: ObservableObject {
   func setUp(mapView: NMFMapView)
 }
-
-protocol MapViewDelegate {
-  associatedtype T = MapAvailable
-  var viewModel: T { get }
-}
