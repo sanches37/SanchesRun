@@ -11,7 +11,7 @@ extension Color {
   static let mediumseagreen = Color(hex: "3cb371")
   static let lightcoral = Color(hex: "f08080")
   static let lightslategray = Color(hex: "778899")
-  static let palegoldenrod = Color(hex: "eee8aa")
+  static let cornflowerblue = Color(hex: "6495ed")
 }
 
 extension Color {

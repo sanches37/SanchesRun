@@ -65,7 +65,6 @@ final class RunViewModel: ObservableObject {
   
   private func fetchRunPathsByTimerState() {
     $timerState
-      .filter { $0 != .stop }
       .flatMap { _ in
         self.fetchLocationOnce()
       }
@@ -105,10 +104,18 @@ final class RunViewModel: ObservableObject {
       .store(in: &cancellable)
   }
   
-  func timerReset() {
+  func timerEnd() {
     timerState = .stop
     saveRun()
+    reset()
+  }
+  
+  private func reset() {
+    self.runPaths.removeAll()
     self.startDate = nil
+    self.time = timerManager.reset
+    self.oneKilometerPace = 0
+    self.totalDistance = 0
   }
   
   func timerStart() {
@@ -199,7 +206,7 @@ extension RunViewModel: MapAvailable {
     let multipartPath = NMFMultipartPath()
     multipartPath.width = 10
     $runPaths
-      .filter { !($0.last?.isEmpty ?? true) }
+      .dropFirst()
       .map {
         $0.map { $0.map {
           NMGLatLng(
@@ -210,10 +217,13 @@ extension RunViewModel: MapAvailable {
       }
       .sink {
         multipartPath.mapView = nil
-        multipartPath.lineParts = $0.map {
-          NMGLineString(points: $0)
+        if let array = $0.last,
+           !array.isEmpty {
+          multipartPath.lineParts = $0.map {
+            NMGLineString(points: $0)
+          }
+          multipartPath.colorParts.append(NMFPathColor(color: UIColor(Color.mediumseagreen)))
         }
-        multipartPath.colorParts.append(NMFPathColor(color: UIColor(Color.mediumseagreen)))
         multipartPath.mapView = mapView
       }
       .store(in: &cancellable)

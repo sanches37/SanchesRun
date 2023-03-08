@@ -24,12 +24,14 @@ struct CustomDatePicker: View {
         } label: {
           Image(systemName: "chevron.left")
             .fontSize(20,.semibold)
+            .foregroundColor(.cornflowerblue)
         }
         Button {
           currentMonth += 1
         } label: {
           Image(systemName: "chevron.right")
             .fontSize(20,.semibold)
+            .foregroundColor(.cornflowerblue)
         }
       }
       .padding(.horizontal)
@@ -71,7 +73,7 @@ struct CustomDatePicker: View {
           .frame(maxWidth: .infinity)
           .padding(4)
           .background(
-            isSameDay(value.date, currentDate) ? AnyView(Circle().fill(.blue)) : AnyView(EmptyView())
+            isSameDay(value.date, currentDate) ? AnyView(Circle().fill(Color.cornflowerblue)) : AnyView(EmptyView())
           )
         Spacer()
         if let _ = runingDates.first(where: { date in
