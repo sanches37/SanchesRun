@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D39C92C29B1AB9700D6BEAA /* MapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C92B29B1AB9700D6BEAA /* MapProtocol.swift */; };
 		4D39C93129B2D2DD00D6BEAA /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C93029B2D2DC00D6BEAA /* MotionManager.swift */; };
 		4D39C93329B36EA000D6BEAA /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C93229B36EA000D6BEAA /* Double.swift */; };
 		4D39C95829B5A1B900D6BEAA /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C95729B5A1B900D6BEAA /* PersistenceController.swift */; };
@@ -19,7 +18,6 @@
 		4D47FEF129AC901400EBB956 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF029AC901400EBB956 /* LocationManager.swift */; };
 		4D47FEF329AC97B900EBB956 /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF229AC97B900EBB956 /* RunView.swift */; };
 		4D47FEF629AC97E600EBB956 /* RunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF529AC97E600EBB956 /* RunViewModel.swift */; };
-		4D47FEF929AC9D8600EBB956 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEF829AC9D8600EBB956 /* ObservableObject.swift */; };
 		4D6CAFFC29AF2ABA0094E69D /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CAFFB29AF2ABA0094E69D /* TimerManager.swift */; };
 		4D6CAFFE29AF2D1C0094E69D /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CAFFD29AF2D1C0094E69D /* TimerView.swift */; };
 		4D6CB00029AF2F200094E69D /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CAFFF29AF2F200094E69D /* TimeInterval.swift */; };
@@ -39,7 +37,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4D39C92B29B1AB9700D6BEAA /* MapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProtocol.swift; sourceTree = "<group>"; };
 		4D39C93029B2D2DC00D6BEAA /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		4D39C93229B36EA000D6BEAA /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		4D39C95729B5A1B900D6BEAA /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
@@ -52,7 +49,6 @@
 		4D47FEF029AC901400EBB956 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		4D47FEF229AC97B900EBB956 /* RunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunView.swift; sourceTree = "<group>"; };
 		4D47FEF529AC97E600EBB956 /* RunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunViewModel.swift; sourceTree = "<group>"; };
-		4D47FEF829AC9D8600EBB956 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
 		4D47FF0129AEA53600EBB956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4D6CAFFB29AF2ABA0094E69D /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		4D6CAFFD29AF2D1C0094E69D /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
@@ -86,14 +82,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4D39C92A29B1AB4600D6BEAA /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				4D39C92B29B1AB9700D6BEAA /* MapProtocol.swift */,
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
 		4D39C95629B5A13F00D6BEAA /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,7 +119,6 @@
 				4D47FEEE29AC8EA300EBB956 /* View */,
 				4D39C95629B5A13F00D6BEAA /* CoreData */,
 				4D47FEEF29AC8FFA00EBB956 /* Manager */,
-				4D39C92A29B1AB4600D6BEAA /* Protocol */,
 				4D47FEF729AC9D5900EBB956 /* Extension */,
 				4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */,
 				4D47FEE529AC8C5E00EBB956 /* Preview Content */,
@@ -193,7 +180,6 @@
 		4D47FEF729AC9D5900EBB956 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				4D47FEF829AC9D8600EBB956 /* ObservableObject.swift */,
 				4D6CAFFF29AF2F200094E69D /* TimeInterval.swift */,
 				4D6CB00729AF30C10094E69D /* Color.swift */,
 				4D39C93229B36EA000D6BEAA /* Double.swift */,
@@ -376,14 +362,12 @@
 				4D39C95829B5A1B900D6BEAA /* PersistenceController.swift in Sources */,
 				4D6CB00629AF30780094E69D /* FontSize.swift in Sources */,
 				4DF9881F29B7862B00894C53 /* Run+CoreDataProperties.swift in Sources */,
-				4D39C92C29B1AB9700D6BEAA /* MapProtocol.swift in Sources */,
 				4D47FEF129AC901400EBB956 /* LocationManager.swift in Sources */,
 				4D9770BA29B82BD500DE01A8 /* CustomDatePicker.swift in Sources */,
 				4D6CB00329AF30520094E69D /* PrimaryButtonStyle.swift in Sources */,
 				4D6CAFFC29AF2ABA0094E69D /* TimerManager.swift in Sources */,
 				4D6CAFFE29AF2D1C0094E69D /* TimerView.swift in Sources */,
 				4D9770BE29B8324000DE01A8 /* DateModel.swift in Sources */,
-				4D47FEF929AC9D8600EBB956 /* ObservableObject.swift in Sources */,
 				4D39C93129B2D2DD00D6BEAA /* MotionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
