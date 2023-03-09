@@ -9,30 +9,30 @@ import SwiftUI
 import CoreData
 
 struct RecordListView: View {
-  @Environment(\.managedObjectContext) var viewContext
+  @StateObject private var viewModel = RecordListViewModel()
   @FetchRequest(
     sortDescriptors: [NSSortDescriptor(keyPath: \Run.startDate, ascending: true)],
     animation: .default) private var runs: FetchedResults<Run>
-  @State private var selectedDate = Date()
+
   var body: some View {
     VStack {
       CustomDatePicker(
-        currentDate: $selectedDate,
+        currentDate: $viewModel.selectedDate,
         runingDates: Binding<[Date]>(
           get: { runs.map(\.wrappedStartDate) },
           set: { _ in }
         )
       )
       List {
-        ForEach(runs.filter {
-          $0.wrappedStartDate.toDateTimeString() == selectedDate.toDateTimeString()
-        }, id: \.id) { run in
+        ForEach(viewModel.runsByDate(runs), id: \.id) { run in
           NavigationLink {
             RecordView(run: run)
           } label: {
             recordRow(run: run)
           }
-          
+        }
+        .onDelete {
+          viewModel.removeRun(runs, indexSet: $0)
         }
       }
       Spacer()
