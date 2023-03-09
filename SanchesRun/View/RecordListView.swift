@@ -23,19 +23,27 @@ struct RecordListView: View {
           set: { _ in }
         )
       )
-      List {
-        ForEach(viewModel.runsByDate(runs), id: \.id) { run in
-          NavigationLink {
-            RecordView(run: run)
-          } label: {
-            recordRow(run: run)
+     
+      
+      if viewModel.runsByDate(runs).isEmpty {
+        Rectangle()
+          .frame(maxHeight: .infinity)
+          .foregroundColor(Color(UIColor.secondarySystemBackground))
+      } else {
+        List {
+          ForEach(viewModel.runsByDate(runs), id: \.id) { run in
+            NavigationLink {
+              RecordView(run: run)
+            } label: {
+              recordRow(run: run)
+            }
+          }
+          .onDelete {
+            viewModel.removeRun(runs, indexSet: $0)
           }
         }
-        .onDelete {
-          viewModel.removeRun(runs, indexSet: $0)
-        }
       }
-      Spacer()
+//      Spacer()
     }
     .padding()
   }

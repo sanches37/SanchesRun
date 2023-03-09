@@ -25,7 +25,7 @@ struct RunView: View {
   private var runInfo: some View {
     HStack {
       VStack(spacing: 2) {
-        Text("1km 페이스")
+        Text("페이스")
           .fontSize(14)
           .foregroundColor(Color.lightslategray)
         Text(viewModel.oneKilometerPace.positionalTime)
@@ -34,7 +34,7 @@ struct RunView: View {
       }
       .frame(maxWidth: .infinity)
       VStack(spacing: 2) {
-        Text("총거리")
+        Text("거리")
           .fontSize(14)
           .foregroundColor(Color.lightslategray)
         Text(viewModel.totalDistance.withMeter)
