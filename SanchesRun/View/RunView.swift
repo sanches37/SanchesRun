@@ -14,6 +14,7 @@ struct RunView: View {
       MapView<RunViewModel>()
       runInfo
       Divider()
+        .padding(.horizontal)
       TimerView()
     }
     .padding(.bottom, 20)

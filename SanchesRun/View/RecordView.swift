@@ -15,29 +15,53 @@ struct RecordView: View {
     self.run = run
     _viewModel = StateObject(wrappedValue: .init(runPaths: run.runPaths))
   }
+  
   var body: some View {
-    VStack(alignment: .leading, spacing: 15) {
+    VStack(spacing: 18) {
       MapView<RecordViewModel>()
-      VStack(alignment: .leading, spacing: 25) {
-        HStack {
-          Text("운동 시간 :")
-          Text(run.activeTime.positionalTime)
-        }
-        HStack {
-          Text("총거리 :")
-          Text(run.totalDistance.withMeter)
-        }
-        HStack {
-          Text("1km 페이스 :")
-          Text(run.averagePace.positionalTime)
-        }
-      }
-      .fontSize(30)
-      .padding()
+      runInfo
+        .padding(.horizontal)
+        .padding(.bottom, 25)
     }
     .environmentObject(viewModel)
-    .navigationTitle("런닝 기록")
+    .navigationTitle("기록")
     .navigationBarTitleDisplayMode(.large)
+  }
+  
+  @ViewBuilder
+  private var runInfo: some View {
+    VStack(spacing: 18) {
+      VStack(spacing: 3) {
+        Text("시간")
+          .fontSize(18)
+          .foregroundColor(Color.lightslategray)
+        Text(run.activeTime.positionalTime)
+          .fontSize(46)
+          .foregroundColor(Color.primary)
+      }
+      Divider()
+      HStack {
+        VStack(spacing: 3) {
+          Text("페이스")
+            .fontSize(18)
+            .foregroundColor(Color.lightslategray)
+          Text(run.averagePace.positionalTime)
+            .fontSize(40)
+            .foregroundColor(Color.primary)
+        }
+        .frame(maxWidth: .infinity)
+        VStack(spacing: 2) {
+          Text("거리")
+            .fontSize(18)
+            .foregroundColor(Color.lightslategray)
+          Text(run.totalDistance.withMeter)
+            .fontSize(40)
+            .foregroundColor(Color.primary)
+            .frame(maxWidth: .infinity)
+        }
+      }
+    }
+    .frame(maxWidth: .infinity)
   }
 }
 
