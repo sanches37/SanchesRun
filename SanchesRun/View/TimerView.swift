@@ -23,6 +23,8 @@ struct TimerView: View {
       Text(viewModel.time.positionalTime)
         .fontSize(46)
         .foregroundColor(Color.primary)
+        .lineLimit(1)
+        .minimumScaleFactor(0.1)
       HStack(spacing: 16) {
         if viewModel.timerState != .active {
           endButton
@@ -31,7 +33,6 @@ struct TimerView: View {
         AnyView(pauseButton) : AnyView(startButton)
       }
       .frame(maxWidth: .infinity)
-      .padding(.horizontal)
     }
     .onReceive(timer) { _ in
       viewModel.timerUpdate()

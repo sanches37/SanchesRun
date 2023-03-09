@@ -12,10 +12,12 @@ struct RunView: View {
   var body: some View {
     VStack(spacing: 14) {
       MapView<RunViewModel>()
-      runInfo
-      Divider()
-        .padding(.horizontal)
-      TimerView()
+      VStack(spacing: 14) {
+        runInfo
+        Divider()
+        TimerView()
+      }
+      .padding(.horizontal)
     }
     .padding(.bottom, 20)
     .edgesIgnoringSafeArea(.top)
@@ -31,6 +33,8 @@ struct RunView: View {
         Text(viewModel.oneKilometerPace.positionalTime)
           .fontSize(30)
           .foregroundColor(Color.primary)
+          .lineLimit(1)
+          .minimumScaleFactor(0.1)
       }
       .frame(maxWidth: .infinity)
       VStack(spacing: 2) {
@@ -41,6 +45,8 @@ struct RunView: View {
           .fontSize(30)
           .foregroundColor(Color.primary)
           .frame(maxWidth: .infinity)
+          .lineLimit(1)
+          .minimumScaleFactor(0.1)
       }
       .frame(maxWidth: .infinity)
     }

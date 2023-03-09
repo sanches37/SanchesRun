@@ -38,6 +38,8 @@ struct RecordView: View {
         Text(run.activeTime.positionalTime)
           .fontSize(46)
           .foregroundColor(Color.primary)
+          .lineLimit(1)
+          .minimumScaleFactor(0.1)
       }
       Divider()
       HStack {
@@ -48,6 +50,8 @@ struct RecordView: View {
           Text(run.averagePace.positionalTime)
             .fontSize(40)
             .foregroundColor(Color.primary)
+            .lineLimit(1)
+            .minimumScaleFactor(0.1)
         }
         .frame(maxWidth: .infinity)
         VStack(spacing: 2) {
@@ -57,6 +61,8 @@ struct RecordView: View {
           Text(run.totalDistance.withMeter)
             .fontSize(40)
             .foregroundColor(Color.primary)
+            .lineLimit(1)
+            .minimumScaleFactor(0.1)
             .frame(maxWidth: .infinity)
         }
       }
