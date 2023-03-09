@@ -11,7 +11,7 @@ struct RunView: View {
   @StateObject private var viewModel = RunViewModel()
   var body: some View {
     VStack(spacing: 14) {
-      MapView<RunViewModel>()
+      RunMapView()
       VStack(spacing: 14) {
         runInfo
         Divider()

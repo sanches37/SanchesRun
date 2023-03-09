@@ -8,5 +8,5 @@
 import NMapsMap
 
 protocol MapAvailable: ObservableObject {
-  func setUp(mapView: NMFMapView)
+  func setUp(mapView: NMFMapView?)
 }

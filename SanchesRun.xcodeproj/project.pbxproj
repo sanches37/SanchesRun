@@ -26,12 +26,12 @@
 		4D6CB00329AF30520094E69D /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00229AF30520094E69D /* PrimaryButtonStyle.swift */; };
 		4D6CB00629AF30780094E69D /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00529AF30780094E69D /* FontSize.swift */; };
 		4D6CB00829AF30C10094E69D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00729AF30C10094E69D /* Color.swift */; };
-		4D6CB00B29AF36E80094E69D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00A29AF36E80094E69D /* MapView.swift */; };
+		4D6CB00B29AF36E80094E69D /* RunMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00A29AF36E80094E69D /* RunMapView.swift */; };
 		4D9770BA29B82BD500DE01A8 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9770B929B82BD500DE01A8 /* CustomDatePicker.swift */; };
 		4D9770BE29B8324000DE01A8 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9770BD29B8324000DE01A8 /* DateModel.swift */; };
 		4DE8BAB429B9CB11007C6264 /* RecordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BAB329B9CB11007C6264 /* RecordListViewModel.swift */; };
+		4DE8BAB829BA2DCF007C6264 /* RecordMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BAB729BA2DCF007C6264 /* RecordMapView.swift */; };
 		4DF987ED29B6269900894C53 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF987EC29B6269900894C53 /* RecordView.swift */; };
-		4DF987EF29B6277600894C53 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF987EE29B6277600894C53 /* RecordViewModel.swift */; };
 		4DF9881F29B7862B00894C53 /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9881D29B7862A00894C53 /* Run+CoreDataProperties.swift */; };
 		4DF9882129B7901700894C53 /* RecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9882029B7901700894C53 /* RecordListView.swift */; };
 		4DF9882329B7997100894C53 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9882229B7997100894C53 /* Date.swift */; };
@@ -60,12 +60,12 @@
 		4D6CB00229AF30520094E69D /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		4D6CB00529AF30780094E69D /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		4D6CB00729AF30C10094E69D /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		4D6CB00A29AF36E80094E69D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		4D6CB00A29AF36E80094E69D /* RunMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunMapView.swift; sourceTree = "<group>"; };
 		4D9770B929B82BD500DE01A8 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		4D9770BD29B8324000DE01A8 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		4DE8BAB329B9CB11007C6264 /* RecordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewModel.swift; sourceTree = "<group>"; };
+		4DE8BAB729BA2DCF007C6264 /* RecordMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMapView.swift; sourceTree = "<group>"; };
 		4DF987EC29B6269900894C53 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
-		4DF987EE29B6277600894C53 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
 		4DF9881D29B7862A00894C53 /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Run+CoreDataProperties.swift"; path = "/Users/taehoonpark/Desktop/Project/SanchesRun/SanchesRun/CoreData/Run+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		4DF9882029B7901700894C53 /* RecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListView.swift; sourceTree = "<group>"; };
 		4DF9882229B7997100894C53 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -160,10 +160,11 @@
 			children = (
 				4D47FEE129AC8C5B00EBB956 /* ContentView.swift */,
 				4D47FEF229AC97B900EBB956 /* RunView.swift */,
-				4D6CB00A29AF36E80094E69D /* MapView.swift */,
+				4D6CB00A29AF36E80094E69D /* RunMapView.swift */,
 				4D6CAFFD29AF2D1C0094E69D /* TimerView.swift */,
 				4DF9882029B7901700894C53 /* RecordListView.swift */,
 				4DF987EC29B6269900894C53 /* RecordView.swift */,
+				4DE8BAB729BA2DCF007C6264 /* RecordMapView.swift */,
 				4D6CB00129AF30160094E69D /* CommonView */,
 				4D6CB00429AF30630094E69D /* ViewModifier */,
 			);
@@ -185,7 +186,6 @@
 			children = (
 				4D47FEF529AC97E600EBB956 /* RunViewModel.swift */,
 				4DE8BAB329B9CB11007C6264 /* RecordListViewModel.swift */,
-				4DF987EE29B6277600894C53 /* RecordViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -361,7 +361,7 @@
 			files = (
 				4D39C95B29B5A4A200D6BEAA /* SanchesRun.xcdatamodeld in Sources */,
 				4D39C93329B36EA000D6BEAA /* Double.swift in Sources */,
-				4DF987EF29B6277600894C53 /* RecordViewModel.swift in Sources */,
+				4DE8BAB829BA2DCF007C6264 /* RecordMapView.swift in Sources */,
 				4D47FEF629AC97E600EBB956 /* RunViewModel.swift in Sources */,
 				4D6CB00029AF2F200094E69D /* TimeInterval.swift in Sources */,
 				4DF9882129B7901700894C53 /* RecordListView.swift in Sources */,
@@ -369,7 +369,7 @@
 				4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */,
 				4DF987ED29B6269900894C53 /* RecordView.swift in Sources */,
 				4D47FEE029AC8C5B00EBB956 /* SanchesRunApp.swift in Sources */,
-				4D6CB00B29AF36E80094E69D /* MapView.swift in Sources */,
+				4D6CB00B29AF36E80094E69D /* RunMapView.swift in Sources */,
 				4DE8BAB429B9CB11007C6264 /* RecordListViewModel.swift in Sources */,
 				4D47FEF329AC97B900EBB956 /* RunView.swift in Sources */,
 				4D6CB00829AF30C10094E69D /* Color.swift in Sources */,

@@ -13,7 +13,7 @@ struct RecordListView: View {
   @FetchRequest(
     sortDescriptors: [NSSortDescriptor(keyPath: \Run.startDate, ascending: true)],
     animation: .default) private var runs: FetchedResults<Run>
-
+  
   var body: some View {
     VStack {
       CustomDatePicker(
@@ -23,8 +23,6 @@ struct RecordListView: View {
           set: { _ in }
         )
       )
-     
-      
       if viewModel.runsByDate(runs).isEmpty {
         Rectangle()
           .frame(maxHeight: .infinity)
@@ -43,7 +41,6 @@ struct RecordListView: View {
           }
         }
       }
-//      Spacer()
     }
     .padding()
   }

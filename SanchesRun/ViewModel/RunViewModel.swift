@@ -6,15 +6,13 @@
 //
 
 import Combine
-import NMapsMap
-import SwiftUI
+import CoreLocation
 
 final class RunViewModel: ObservableObject {
   private let locationManager = LocationManager()
   private let timerManager = TimerManager()
   private let motionManager = MotionManager()
   private var cancellable = Set<AnyCancellable>()
-  private let multipartPath = NMFMultipartPath()
   
   @Published private(set) var time: TimeInterval = 0
   @Published private(set) var timerState: TimerState = .stop
@@ -31,15 +29,19 @@ final class RunViewModel: ObservableObject {
     fetchAveragePace()
   }
   
-  private func fetchLocationOnce() -> AnyPublisher<CLLocation, Never> {
+  deinit {
+    print("RunViewModel deinit")
+  }
+  
+  private func fetchLocationOnce() -> AnyPublisher<CLLocation?, Never> {
     locationManager.observeLocation()
-      .compactMap { $0 }
       .first()
       .eraseToAnyPublisher()
   }
   
   private func fetchFirstLocation() {
     fetchLocationOnce()
+      .compactMap{ $0 }
       .sink { result in
         self.userLocation = result
       }
@@ -51,7 +53,9 @@ final class RunViewModel: ObservableObject {
       locationManager.observeLocation(),
       motionManager.observeActiveMotion()
     )
-    .filter { self.timerState == .active && $1 }
+    .filter { [weak self] _, isActiveMotion in
+      self?.timerState == .active && isActiveMotion
+    }
     .compactMap { location, _ in location }
     .removeDuplicates { preValue, currentValue in
       let difference = preValue.distance(from: currentValue)
@@ -66,12 +70,13 @@ final class RunViewModel: ObservableObject {
   
   private func fetchRunPathsByTimerState() {
     $timerState
-      .filter{ $0 != .stop }
-      .flatMap { _ in
-        self.fetchLocationOnce()
+      .filter { $0 != .stop }
+      .flatMap { [weak self] _ in
+        self?.fetchLocationOnce() ?? Just(nil).eraseToAnyPublisher()
       }
-      .sink { result in
-        self.updateRunPaths(location: result)
+      .compactMap { $0 }
+      .sink { [weak self] result in
+        self?.updateRunPaths(location: result)
       }
       .store(in: &cancellable)
   }
@@ -153,93 +158,5 @@ final class RunViewModel: ObservableObject {
     if startDate == nil {
       startDate = Date()
     }
-  }
-}
-
-extension RunViewModel: MapAvailable {
-  func setUp(mapView: NMFMapView) {
-    defaultSetting(mapView: mapView)
-    focusFirstLocation(mapView: mapView)
-    focusPathLocation(mapView: mapView)
-    updatePath(mapView: mapView)
-    resetPath(mapView: mapView)
-  }
-  
-  private func defaultSetting(mapView: NMFMapView) {
-    mapView.zoomLevel = 17
-    mapView.minZoomLevel = 13
-  }
-  func focusFirstLocation(mapView: NMFMapView) {
-    $userLocation
-      .compactMap { $0 }
-      .map {
-        NMGLatLng(
-          lat: $0.coordinate.latitude,
-          lng: $0.coordinate.longitude
-        )
-      }
-      .first()
-      .sink {
-        let cameraUpdate = NMFCameraUpdate(scrollTo: $0)
-        mapView.moveCamera(cameraUpdate)
-        mapView.positionMode = .direction
-      }
-      .store(in: &cancellable)
-  }
-  
-  private func focusPathLocation(mapView: NMFMapView) {
-    $runPaths
-      .compactMap { $0.last?.last }
-      .map {
-        NMGLatLng(
-          lat: $0.coordinate.latitude,
-          lng: $0.coordinate.longitude
-        )
-      }
-      .sink {
-        let cameraUpdate = NMFCameraUpdate(scrollTo: $0)
-        cameraUpdate.animation = .easeOut
-        mapView.moveCamera(cameraUpdate)
-        mapView.positionMode = .direction
-      }
-      .store(in: &cancellable)
-  }
-  
-  private func updatePath(mapView: NMFMapView) {
-    multipartPath.width = 10
-    $runPaths
-      .filter { !($0.last?.isEmpty ?? false) }
-      .map {
-        $0.map { $0.map {
-          NMGLatLng(
-            lat: $0.coordinate.latitude,
-            lng: $0.coordinate.longitude
-          )}
-        }
-      }
-      .sink { [weak self] result in
-        guard let self = self else { return }
-        self.multipartPath.mapView = nil
-        self.multipartPath.lineParts = result.map {
-          NMGLineString(points: $0)
-        }
-        self.multipartPath.colorParts.append(
-          NMFPathColor(color: UIColor(Color.mediumseagreen))
-        )
-        self.multipartPath.mapView = mapView
-      }
-      .store(in: &cancellable)
-  }
-  
-  private func resetPath(mapView: NMFMapView) {
-    $runPaths
-      .dropFirst()
-      .filter { $0.isEmpty }
-      .sink { [weak self] _ in
-        guard let self = self else { return }
-        self.multipartPath.mapView = nil
-        self.multipartPath.mapView = mapView
-      }
-      .store(in: &cancellable)
   }
 }

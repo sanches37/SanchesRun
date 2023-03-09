@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class RecordListViewModel: ObservableObject {
+final class RecordListViewModel: ObservableObject {
   @Published var selectedDate = Date()
   
   func runsByDate(_ runs: FetchedResults<Run>) -> [FetchedResults<Run>.Element] {
