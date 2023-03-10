@@ -69,7 +69,9 @@ struct CustomDatePicker: View {
       if value.day != 0 {
         Text("\(value.day)")
           .fontSize(20)
-          .foregroundColor(isSameDay(value.date, currentDate) ? .white : .primary)
+          .foregroundColor(
+            isSameDay(value.date, currentDate) ? .white :
+              isSameDay(value.date, Date()) ? .cornflowerblue : .primary)
           .frame(maxWidth: .infinity)
           .padding(4)
           .background(
