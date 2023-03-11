@@ -14,43 +14,61 @@ final class RunViewModel: ObservableObject {
   private let motionManager = MotionManager()
   private var cancellable = Set<AnyCancellable>()
   
+  @Published private var userLocation: CLLocation?
   @Published private(set) var time: TimeInterval = 0
   @Published private(set) var timerState: TimerState = .stop
   @Published private(set) var runPaths: [[CLLocation]] = []
-  @Published private(set) var userLocation: CLLocation?
+  @Published private(set) var focusLocation: CLLocation?
   @Published private(set) var totalDistance: Double = 0
   @Published private(set) var oneKilometerPace: TimeInterval = 0
+  @Published var islocationPermissionDenied = false
+  @Published var isLocationAndMotionPermissionDenied = false
   private var startDate: Date?
+  private(set) var permissionDenied: PermissionDenied?
+  
   
   init() {
+    fetchLocation()
     fetchFirstLocation()
     fetchRunPaths()
     fetchRunPathsByTimerState()
     fetchAveragePace()
+    checkPermissionDenied()
   }
   
   deinit {
     print("RunViewModel deinit")
   }
   
-  private func fetchLocationOnce() -> AnyPublisher<CLLocation?, Never> {
+  private func fetchLocation() {
     locationManager.observeLocation()
-      .first()
-      .eraseToAnyPublisher()
-  }
-  
-  private func fetchFirstLocation() {
-    fetchLocationOnce()
-      .compactMap{ $0 }
-      .sink { result in
-        self.userLocation = result
+      .sink { [weak self] result in
+        self?.userLocation = result
       }
       .store(in: &cancellable)
   }
   
+  private func fetchFirstLocation() {
+    $userLocation
+      .compactMap{ $0 }
+      .first()
+      .sink { result in
+        self.focusLocation = result
+      }
+      .store(in: &cancellable)
+  }
+  
+  func fetchLocationByButton() {
+    if userLocation == nil {
+      islocationPermissionDenied = true
+    } else {
+      fetchFirstLocation()
+    }
+  }
+  
   private func fetchRunPaths() {
     Publishers.CombineLatest(
-      locationManager.observeLocation(),
+      $userLocation,
       motionManager.observeActiveMotion()
     )
     .filter { [weak self] _, isActiveMotion in
@@ -72,7 +90,7 @@ final class RunViewModel: ObservableObject {
     $timerState
       .filter { $0 != .stop }
       .flatMap { [weak self] _ in
-        self?.fetchLocationOnce() ?? Just(nil).eraseToAnyPublisher()
+        self?.$userLocation.first().eraseToAnyPublisher() ?? Just(nil).eraseToAnyPublisher()
       }
       .compactMap { $0 }
       .sink { [weak self] result in
@@ -126,11 +144,20 @@ final class RunViewModel: ObservableObject {
   }
   
   func timerStart() {
-    addRunningDistance = nil
-    runPaths.append([CLLocation]())
-    timerManager.start()
-    saveStartDate()
-    timerState = .active
+    isLocationAndMotionPermissionDenied =
+    (permissionDenied == nil ? false : true)
+    
+    if isLocationAndMotionPermissionDenied == false {
+      activeStart()
+    }
+  }
+  
+  private func activeStart() {
+    self.addRunningDistance = nil
+    self.runPaths.append([CLLocation]())
+    self.timerManager.start()
+    self.saveStartDate()
+    self.timerState = .active
   }
   
   func timerUpdate() {
@@ -158,5 +185,27 @@ final class RunViewModel: ObservableObject {
     if startDate == nil {
       startDate = Date()
     }
+  }
+  
+  private func checkPermissionDenied() {
+    Publishers.CombineLatest(
+      $userLocation
+        .map { $0 == nil },
+      motionManager.observeMotionPermissionDenied()
+    )
+    .map { locationDenied, motionDenied in
+      if locationDenied && motionDenied {
+        return .locationAndMotion
+      } else if locationDenied {
+        return .location
+      } else if motionDenied {
+        return .motion
+      }
+      return nil
+    }
+    .sink { [weak self] result in
+      self?.permissionDenied = result
+    }
+    .store(in: &cancellable)
   }
 }

@@ -37,9 +37,6 @@ struct TimerView: View {
     .onReceive(timer) { _ in
       viewModel.timerUpdate()
     }
-    .alert(isPresented: $shouldShowEndAlert) {
-      endAlert
-    }
   }
   
   private var endButton: some View {
@@ -53,6 +50,9 @@ struct TimerView: View {
         fillColor: viewModel.runPaths.isEmpty ? .lightslategray : .cornflowerblue )
     )
     .disabled(viewModel.runPaths.isEmpty)
+    .alert(isPresented: $shouldShowEndAlert) {
+      endAlert
+    }
   }
   
   private var startButton: some View {
@@ -64,6 +64,9 @@ struct TimerView: View {
     }.buttonStyle(
       PrimaryButtonStyle(fillColor: .lightcoral)
     )
+    .alert(isPresented: $viewModel.isLocationAndMotionPermissionDenied) {
+      permissionDeniedAlert(value: viewModel.permissionDenied)
+    }
   }
   
   private var pauseButton: some View {
@@ -74,6 +77,16 @@ struct TimerView: View {
         .frame(maxWidth: .infinity)
     }.buttonStyle(
       PrimaryButtonStyle(fillColor: .mediumseagreen)
+    )
+  }
+  
+  private func permissionDeniedAlert(value: PermissionDenied?) -> Alert {
+    Alert(
+      title: Text("\(value?.text ?? "") 허용이 되지 않았습니다."),
+      message: Text("설정에서 \(value?.text ?? "") 허용을 해주세요."),
+      primaryButton: .default(Text("설정")) {
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!) },
+      secondaryButton: .cancel(Text("취소"))
     )
   }
   

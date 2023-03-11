@@ -29,6 +29,7 @@
 		4D9770BE29B8324000DE01A8 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9770BD29B8324000DE01A8 /* DateModel.swift */; };
 		4DE8BAB429B9CB11007C6264 /* RecordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BAB329B9CB11007C6264 /* RecordListViewModel.swift */; };
 		4DE8BAB829BA2DCF007C6264 /* RecordMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BAB729BA2DCF007C6264 /* RecordMapView.swift */; };
+		4DE8BABE29BD0694007C6264 /* PermissionDenied.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BABD29BD0694007C6264 /* PermissionDenied.swift */; };
 		4DF987ED29B6269900894C53 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF987EC29B6269900894C53 /* RecordView.swift */; };
 		4DF9881F29B7862B00894C53 /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9881D29B7862A00894C53 /* Run+CoreDataProperties.swift */; };
 		4DF9882129B7901700894C53 /* RecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9882029B7901700894C53 /* RecordListView.swift */; };
@@ -62,6 +63,7 @@
 		4DE8BAB329B9CB11007C6264 /* RecordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewModel.swift; sourceTree = "<group>"; };
 		4DE8BAB729BA2DCF007C6264 /* RecordMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMapView.swift; sourceTree = "<group>"; };
 		4DE8BAB929BAEEEE007C6264 /* SanchesRun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SanchesRun.entitlements; sourceTree = "<group>"; };
+		4DE8BABD29BD0694007C6264 /* PermissionDenied.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionDenied.swift; sourceTree = "<group>"; };
 		4DF987EC29B6269900894C53 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		4DF9881D29B7862A00894C53 /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Run+CoreDataProperties.swift"; path = "/Users/taehoonpark/Desktop/Project/SanchesRun/SanchesRun/CoreData/Run+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		4DF9882029B7901700894C53 /* RecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListView.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				4D39C95629B5A13F00D6BEAA /* CoreData */,
 				4D47FEEF29AC8FFA00EBB956 /* Manager */,
 				4D47FEF729AC9D5900EBB956 /* Extension */,
+				4DE8BABC29BD066B007C6264 /* Enum */,
 				4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */,
 				4D47FEE529AC8C5E00EBB956 /* Preview Content */,
 			);
@@ -205,6 +208,14 @@
 				4D6CB00529AF30780094E69D /* FontSize.swift */,
 			);
 			path = ViewModifier;
+			sourceTree = "<group>";
+		};
+		4DE8BABC29BD066B007C6264 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				4DE8BABD29BD0694007C6264 /* PermissionDenied.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 		4DF9881B29B783B800894C53 /* Model */ = {
@@ -365,6 +376,7 @@
 				4D6CB00629AF30780094E69D /* FontSize.swift in Sources */,
 				4DF9881F29B7862B00894C53 /* Run+CoreDataProperties.swift in Sources */,
 				4D47FEF129AC901400EBB956 /* LocationManager.swift in Sources */,
+				4DE8BABE29BD0694007C6264 /* PermissionDenied.swift in Sources */,
 				4D9770BA29B82BD500DE01A8 /* CustomDatePicker.swift in Sources */,
 				4D6CB00329AF30520094E69D /* PrimaryButtonStyle.swift in Sources */,
 				4D6CAFFC29AF2ABA0094E69D /* TimerManager.swift in Sources */,
@@ -499,15 +511,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SanchesRun/SanchesRun.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"SanchesRun/Preview Content\"";
 				DEVELOPMENT_TEAM = 626VJ36K6Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SanchesRun/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 기반 컨텐츠 추천을 위해 위치 권한이 필요합니다.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 기반 컨텐츠 추천을 위해 위치 권한이 필요합니다.";
-				INFOPLIST_KEY_NSMotionUsageDescription = "사용자 동작 파악에 사용합니다.";
+				INFOPLIST_KEY_CFBundleDisplayName = "Sanches Run";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "걷거나 달릴 때 위치 기반으로 운동 기록 측정이 동작합니다. 운동 기록 측정을 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "걷거나 달릴 때 위치 기반으로 운동 기록 측정이 동작합니다. 운동 기록 측정을 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "걷기, 달리기 모션을 인식하여, 운동 기록 측정이 동작합니다. 운동 기록 측정을 위해 모션 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -537,15 +550,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SanchesRun/SanchesRun.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"SanchesRun/Preview Content\"";
 				DEVELOPMENT_TEAM = 626VJ36K6Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SanchesRun/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 기반 컨텐츠 추천을 위해 위치 권한이 필요합니다.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 기반 컨텐츠 추천을 위해 위치 권한이 필요합니다.";
-				INFOPLIST_KEY_NSMotionUsageDescription = "사용자 동작 파악에 사용합니다.";
+				INFOPLIST_KEY_CFBundleDisplayName = "Sanches Run";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "걷거나 달릴 때 위치 기반으로 운동 기록 측정이 동작합니다. 운동 기록 측정을 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "걷거나 달릴 때 위치 기반으로 운동 기록 측정이 동작합니다. 운동 기록 측정을 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "걷기, 달리기 모션을 인식하여, 운동 기록 측정이 동작합니다. 운동 기록 측정을 위해 모션 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

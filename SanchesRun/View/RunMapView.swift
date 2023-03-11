@@ -33,7 +33,7 @@ struct RunMapView: UIViewRepresentable {
     multipartPath.width = 10
   }
   private func focusFirstLocation(context: Context, mapView: NMFMapView) {
-    viewModel.$userLocation
+    viewModel.$focusLocation
       .compactMap { $0 }
       .map {
         NMGLatLng(
@@ -41,7 +41,6 @@ struct RunMapView: UIViewRepresentable {
           lng: $0.coordinate.longitude
         )
       }
-      .first()
       .sink {
         let cameraUpdate = NMFCameraUpdate(scrollTo: $0)
         mapView.moveCamera(cameraUpdate)
