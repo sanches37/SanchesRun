@@ -23,18 +23,6 @@ struct ContentView: View {
         RecordListView()
           .tabViewItem(tab: .record, selection: $selection)
       }
-//      TabView(selection: $selection) {
-//        RunView()
-//          .tag(ViewTab.run)
-//          .tabItem {
-//            Image(systemName: "figure.walk")
-//          }
-//        RecordListView()
-//          .tag(ViewTab.record)
-//          .tabItem {
-//            Image(systemName: "calendar")
-//          }
-//      }
     }
     .navigationViewStyle(.stack)
   }

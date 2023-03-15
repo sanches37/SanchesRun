@@ -26,7 +26,7 @@ struct RunView: View {
       }
       .padding(.horizontal)
     }
-    .padding(.bottom, 20)
+    .padding(.bottom, 15)
     .edgesIgnoringSafeArea(.top)
     .environmentObject(viewModel)
   }
