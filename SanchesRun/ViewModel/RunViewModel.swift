@@ -5,8 +5,8 @@
 //  Created by tae hoon park on 2023/02/27.
 //
 
+import Foundation
 import Combine
-import CoreLocation
 
 final class RunViewModel: ObservableObject {
   private let locationManager = LocationManager()
@@ -14,18 +14,17 @@ final class RunViewModel: ObservableObject {
   private let motionManager = MotionManager()
   private var cancellable = Set<AnyCancellable>()
   
-  @Published private var userLocation: CLLocation?
+  @Published private var userLocation: Location?
   @Published private(set) var time: TimeInterval = 0
   @Published private(set) var timerState: TimerState = .stop
-  @Published private(set) var runPaths: [[CLLocation]] = []
-  @Published private(set) var focusLocation: CLLocation?
+  @Published private(set) var runPaths: [[Location]] = []
+  @Published private(set) var focusLocation: Location?
   @Published private(set) var totalDistance: Double = 0
   @Published private(set) var oneKilometerPace: TimeInterval = 0
   @Published var islocationPermissionDenied = false
   @Published var isLocationAndMotionPermissionDenied = false
   private var startDate: Date?
   private(set) var permissionDenied: PermissionDenied?
-  
   
   init() {
     fetchLocation()
@@ -42,6 +41,12 @@ final class RunViewModel: ObservableObject {
   
   private func fetchLocation() {
     locationManager.observeLocation()
+      .map{
+        guard let result = $0 else { return nil }
+        return Location(
+          latitude: result.coordinate.latitude,
+          longitude: result.coordinate.longitude)
+      }
       .sink { [weak self] result in
         self?.userLocation = result
       }
@@ -99,13 +104,13 @@ final class RunViewModel: ObservableObject {
       .store(in: &cancellable)
   }
   
-  private func updateRunPaths(location: CLLocation) {
+  private func updateRunPaths(location: Location) {
     guard !runPaths.isEmpty else { return }
     runPaths[runPaths.count - 1].append(location)
     addRunningDistance = location
   }
   
-  private var addRunningDistance: CLLocation? {
+  private var addRunningDistance: Location? {
     didSet {
       if let oldValue = oldValue,
          let addRunningDistance = addRunningDistance {
@@ -154,7 +159,7 @@ final class RunViewModel: ObservableObject {
   
   private func activeStart() {
     self.addRunningDistance = nil
-    self.runPaths.append([CLLocation]())
+    self.runPaths.append([Location]())
     self.timerManager.start()
     self.saveStartDate()
     self.timerState = .active

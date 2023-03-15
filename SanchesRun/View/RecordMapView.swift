@@ -10,7 +10,7 @@ import NMapsMap
 import Combine
 
 struct RecordMapView: UIViewRepresentable {
-  let runPaths: [[CLLocation]]
+  let runPaths: [[Location]]
   let multipartPath = NMFMultipartPath()
   
   func makeUIView(context: Context) -> NMFMapView {
@@ -37,8 +37,8 @@ struct RecordMapView: UIViewRepresentable {
       .map {
         $0.map {
           NMGLatLng(
-            lat: $0.coordinate.latitude,
-            lng: $0.coordinate.longitude
+            lat: $0.latitude,
+            lng: $0.longitude
           )
         }
       }
@@ -55,12 +55,12 @@ struct RecordMapView: UIViewRepresentable {
     let array = runPaths.flatMap { $0 }
     let centerLat =
     array.reduce(0) { result, location in
-      result + location.coordinate.latitude
+      result + location.latitude
     } / Double(array.count)
     
     let centerLng =
     array.reduce(0) { result, location in
-      result + location.coordinate.longitude
+      result + location.longitude
     } / Double(array.count)
     
     let averagePath =  NMGLatLng(lat: centerLat, lng: centerLng)

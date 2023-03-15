@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D064B0329C1AD3900950BAF /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D064B0229C1AD3900950BAF /* LocationModel.swift */; };
+		4D064B0729C1B4C100950BAF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D064B0629C1B4C100950BAF /* Location.swift */; };
+		4D064B0D29C1BD2B00950BAF /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D064B0C29C1BD2B00950BAF /* Run+CoreDataProperties.swift */; };
 		4D39C93129B2D2DD00D6BEAA /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C93029B2D2DC00D6BEAA /* MotionManager.swift */; };
 		4D39C93329B36EA000D6BEAA /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C93229B36EA000D6BEAA /* Double.swift */; };
 		4D39C95829B5A1B900D6BEAA /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C95729B5A1B900D6BEAA /* PersistenceController.swift */; };
@@ -31,13 +34,15 @@
 		4DE8BAB829BA2DCF007C6264 /* RecordMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BAB729BA2DCF007C6264 /* RecordMapView.swift */; };
 		4DE8BABE29BD0694007C6264 /* PermissionDenied.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BABD29BD0694007C6264 /* PermissionDenied.swift */; };
 		4DF987ED29B6269900894C53 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF987EC29B6269900894C53 /* RecordView.swift */; };
-		4DF9881F29B7862B00894C53 /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9881D29B7862A00894C53 /* Run+CoreDataProperties.swift */; };
 		4DF9882129B7901700894C53 /* RecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9882029B7901700894C53 /* RecordListView.swift */; };
 		4DF9882329B7997100894C53 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9882229B7997100894C53 /* Date.swift */; };
 		84BF2AF48C913AE8F53DE097 /* Pods_SanchesRun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAD1F40AB099B030F14D292 /* Pods_SanchesRun.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D064B0229C1AD3900950BAF /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		4D064B0629C1B4C100950BAF /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		4D064B0C29C1BD2B00950BAF /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Run+CoreDataProperties.swift"; path = "/Users/taehoonpark/Desktop/Project/SanchesRun/SanchesRun/Model/Run+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		4D39C93029B2D2DC00D6BEAA /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		4D39C93229B36EA000D6BEAA /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		4D39C95729B5A1B900D6BEAA /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
@@ -65,7 +70,6 @@
 		4DE8BAB929BAEEEE007C6264 /* SanchesRun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SanchesRun.entitlements; sourceTree = "<group>"; };
 		4DE8BABD29BD0694007C6264 /* PermissionDenied.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionDenied.swift; sourceTree = "<group>"; };
 		4DF987EC29B6269900894C53 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
-		4DF9881D29B7862A00894C53 /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Run+CoreDataProperties.swift"; path = "/Users/taehoonpark/Desktop/Project/SanchesRun/SanchesRun/CoreData/Run+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		4DF9882029B7901700894C53 /* RecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListView.swift; sourceTree = "<group>"; };
 		4DF9882229B7997100894C53 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		50EB442215449E6A960657A0 /* Pods-SanchesRun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SanchesRun.debug.xcconfig"; path = "Target Support Files/Pods-SanchesRun/Pods-SanchesRun.debug.xcconfig"; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				4D6CB00729AF30C10094E69D /* Color.swift */,
 				4D39C93229B36EA000D6BEAA /* Double.swift */,
 				4DF9882229B7997100894C53 /* Date.swift */,
+				4D064B0629C1B4C100950BAF /* Location.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -221,8 +226,9 @@
 		4DF9881B29B783B800894C53 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4DF9881D29B7862A00894C53 /* Run+CoreDataProperties.swift */,
+				4D064B0C29C1BD2B00950BAF /* Run+CoreDataProperties.swift */,
 				4D9770BD29B8324000DE01A8 /* DateModel.swift */,
+				4D064B0229C1AD3900950BAF /* LocationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -368,13 +374,15 @@
 				4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */,
 				4DF987ED29B6269900894C53 /* RecordView.swift in Sources */,
 				4D47FEE029AC8C5B00EBB956 /* SanchesRunApp.swift in Sources */,
+				4D064B0329C1AD3900950BAF /* LocationModel.swift in Sources */,
 				4D6CB00B29AF36E80094E69D /* RunMapView.swift in Sources */,
 				4DE8BAB429B9CB11007C6264 /* RecordListViewModel.swift in Sources */,
+				4D064B0729C1B4C100950BAF /* Location.swift in Sources */,
 				4D47FEF329AC97B900EBB956 /* RunView.swift in Sources */,
+				4D064B0D29C1BD2B00950BAF /* Run+CoreDataProperties.swift in Sources */,
 				4D6CB00829AF30C10094E69D /* Color.swift in Sources */,
 				4D39C95829B5A1B900D6BEAA /* PersistenceController.swift in Sources */,
 				4D6CB00629AF30780094E69D /* FontSize.swift in Sources */,
-				4DF9881F29B7862B00894C53 /* Run+CoreDataProperties.swift in Sources */,
 				4D47FEF129AC901400EBB956 /* LocationManager.swift in Sources */,
 				4DE8BABE29BD0694007C6264 /* PermissionDenied.swift in Sources */,
 				4D9770BA29B82BD500DE01A8 /* CustomDatePicker.swift in Sources */,

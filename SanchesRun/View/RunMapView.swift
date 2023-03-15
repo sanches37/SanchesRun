@@ -37,8 +37,8 @@ struct RunMapView: UIViewRepresentable {
       .compactMap { $0 }
       .map {
         NMGLatLng(
-          lat: $0.coordinate.latitude,
-          lng: $0.coordinate.longitude
+          lat: $0.latitude,
+          lng: $0.longitude
         )
       }
       .sink {
@@ -54,8 +54,8 @@ struct RunMapView: UIViewRepresentable {
       .compactMap { $0.last?.last }
       .map {
         NMGLatLng(
-          lat: $0.coordinate.latitude,
-          lng: $0.coordinate.longitude
+          lat: $0.latitude,
+          lng: $0.longitude
         )
       }
       .sink {
@@ -73,8 +73,8 @@ struct RunMapView: UIViewRepresentable {
       .map {
         $0.map { $0.map {
           NMGLatLng(
-            lat: $0.coordinate.latitude,
-            lng: $0.coordinate.longitude
+            lat: $0.latitude,
+            lng: $0.longitude
           )}
         }
       }

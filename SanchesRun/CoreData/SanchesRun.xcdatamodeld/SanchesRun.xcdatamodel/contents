@@ -4,7 +4,7 @@
         <attribute name="activeTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="averagePace" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="String"/>
-        <attribute name="runPaths" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="[[CLLocation]]"/>
+        <attribute name="runPaths" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="[[Location]]"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="totalDistance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
