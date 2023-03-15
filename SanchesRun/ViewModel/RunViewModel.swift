@@ -163,6 +163,9 @@ final class RunViewModel: ObservableObject {
     self.timerManager.start()
     self.saveStartDate()
     self.timerState = .active
+    if #available(iOS 16.1, *) {
+      addLiveActivity()
+    }
   }
   
   func timerUpdate() {
@@ -212,5 +215,30 @@ final class RunViewModel: ObservableObject {
       self?.permissionDenied = result
     }
     .store(in: &cancellable)
+  }
+}
+
+import ActivityKit
+
+@available(iOS 16.1, *)
+extension RunViewModel {
+  private func addLiveActivity() {
+    let runAttributes = RunAttributes()
+    let initalContentState = RunAttributes.ContentState(
+      time: self.time,
+      totalDistance: self.totalDistance,
+      oneKilometerPace: self.oneKilometerPace
+    )
+    
+    do {
+      let activity = try Activity<RunAttributes>.request(
+        attributes: runAttributes,
+        contentState: initalContentState,
+        pushType: nil
+      )
+      print("success id: \(activity.id)")
+    } catch {
+      debugPrint(error.localizedDescription)
+    }
   }
 }
