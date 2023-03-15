@@ -36,6 +36,7 @@ struct RunView: View {
       viewModel.fetchLocationByButton()
     } label: {
       Image(systemName: "scope")
+        .foregroundColor(.cornflowerblue)
         .font(.body)
         .padding(10)
         .background(Color.white)

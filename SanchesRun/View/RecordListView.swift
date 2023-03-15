@@ -13,6 +13,7 @@ struct RecordListView: View {
   @FetchRequest(
     sortDescriptors: [NSSortDescriptor(keyPath: \Run.startDate, ascending: true)],
     animation: .default) private var runs: FetchedResults<Run>
+  @Environment(\.colorScheme) var scheme
   
   var body: some View {
     VStack {
@@ -23,7 +24,7 @@ struct RecordListView: View {
           set: { _ in }
         )
       )
-      if viewModel.runsByDate(runs).isEmpty {
+      if viewModel.runsByDate(runs).isEmpty && scheme == .light {
         Rectangle()
           .frame(maxHeight: .infinity)
           .foregroundColor(Color(UIColor.secondarySystemBackground))

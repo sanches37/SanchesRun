@@ -26,8 +26,8 @@ struct RecordMapView: UIViewRepresentable {
   }
   
   private func defaultSetting(mapView: NMFMapView) {
-    mapView.zoomLevel = 14
-    mapView.minZoomLevel = 13
+    mapView.zoomLevel = 13
+    mapView.minZoomLevel = 12
     multipartPath.width = 10
   }
   

@@ -13,22 +13,28 @@ enum ViewTab {
 }
 
 struct ContentView: View {
-  @State private var selection: ViewTab = .run
+  @State private var selection: TabViewItem = .run
   
   var body: some View {
     NavigationView {
-      TabView(selection: $selection) {
+      CustomTabViewContainer(selection: $selection) {
         RunView()
-          .tag(ViewTab.run)
-          .tabItem {
-            Image(systemName: "figure.walk")
-          }
+          .tabViewItem(tab: .run, selection: $selection)
         RecordListView()
-          .tag(ViewTab.record)
-          .tabItem {
-            Image(systemName: "calendar")
-          }
+          .tabViewItem(tab: .record, selection: $selection)
       }
+//      TabView(selection: $selection) {
+//        RunView()
+//          .tag(ViewTab.run)
+//          .tabItem {
+//            Image(systemName: "figure.walk")
+//          }
+//        RecordListView()
+//          .tag(ViewTab.record)
+//          .tabItem {
+//            Image(systemName: "calendar")
+//          }
+//      }
     }
     .navigationViewStyle(.stack)
   }

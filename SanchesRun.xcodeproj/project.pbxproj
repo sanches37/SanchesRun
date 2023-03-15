@@ -10,6 +10,10 @@
 		4D064B0329C1AD3900950BAF /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D064B0229C1AD3900950BAF /* LocationModel.swift */; };
 		4D064B0729C1B4C100950BAF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D064B0629C1B4C100950BAF /* Location.swift */; };
 		4D064B0D29C1BD2B00950BAF /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D064B0C29C1BD2B00950BAF /* Run+CoreDataProperties.swift */; };
+		4D064B1129C2046600950BAF /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D064B1029C2046600950BAF /* CustomTabView.swift */; };
+		4D064B1329C2182D00950BAF /* CustomTabViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D064B1229C2182D00950BAF /* CustomTabViewContainer.swift */; };
+		4D064B1529C21A2300950BAF /* TabViewPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D064B1429C21A2300950BAF /* TabViewPreferenceKey.swift */; };
+		4D064B1729C21C5200950BAF /* TabViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D064B1629C21C5200950BAF /* TabViewItem.swift */; };
 		4D39C93129B2D2DD00D6BEAA /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C93029B2D2DC00D6BEAA /* MotionManager.swift */; };
 		4D39C93329B36EA000D6BEAA /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C93229B36EA000D6BEAA /* Double.swift */; };
 		4D39C95829B5A1B900D6BEAA /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C95729B5A1B900D6BEAA /* PersistenceController.swift */; };
@@ -43,6 +47,10 @@
 		4D064B0229C1AD3900950BAF /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		4D064B0629C1B4C100950BAF /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		4D064B0C29C1BD2B00950BAF /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Run+CoreDataProperties.swift"; path = "/Users/taehoonpark/Desktop/Project/SanchesRun/SanchesRun/Model/Run+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		4D064B1029C2046600950BAF /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		4D064B1229C2182D00950BAF /* CustomTabViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabViewContainer.swift; sourceTree = "<group>"; };
+		4D064B1429C21A2300950BAF /* TabViewPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewPreferenceKey.swift; sourceTree = "<group>"; };
+		4D064B1629C21C5200950BAF /* TabViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewItem.swift; sourceTree = "<group>"; };
 		4D39C93029B2D2DC00D6BEAA /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		4D39C93229B36EA000D6BEAA /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		4D39C95729B5A1B900D6BEAA /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
@@ -89,6 +97,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D064B1829C21C5C00950BAF /* CustomTabView */ = {
+			isa = PBXGroup;
+			children = (
+				4D064B1229C2182D00950BAF /* CustomTabViewContainer.swift */,
+				4D064B1029C2046600950BAF /* CustomTabView.swift */,
+				4D064B1429C21A2300950BAF /* TabViewPreferenceKey.swift */,
+				4D064B1629C21C5200950BAF /* TabViewItem.swift */,
+			);
+			path = CustomTabView;
+			sourceTree = "<group>";
+		};
 		4D39C95629B5A13F00D6BEAA /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +222,7 @@
 			children = (
 				4D6CB00229AF30520094E69D /* PrimaryButtonStyle.swift */,
 				4D9770B929B82BD500DE01A8 /* CustomDatePicker.swift */,
+				4D064B1829C21C5C00950BAF /* CustomTabView */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -379,6 +399,7 @@
 				4DE8BAB429B9CB11007C6264 /* RecordListViewModel.swift in Sources */,
 				4D064B0729C1B4C100950BAF /* Location.swift in Sources */,
 				4D47FEF329AC97B900EBB956 /* RunView.swift in Sources */,
+				4D064B1529C21A2300950BAF /* TabViewPreferenceKey.swift in Sources */,
 				4D064B0D29C1BD2B00950BAF /* Run+CoreDataProperties.swift in Sources */,
 				4D6CB00829AF30C10094E69D /* Color.swift in Sources */,
 				4D39C95829B5A1B900D6BEAA /* PersistenceController.swift in Sources */,
@@ -387,10 +408,13 @@
 				4DE8BABE29BD0694007C6264 /* PermissionDenied.swift in Sources */,
 				4D9770BA29B82BD500DE01A8 /* CustomDatePicker.swift in Sources */,
 				4D6CB00329AF30520094E69D /* PrimaryButtonStyle.swift in Sources */,
+				4D064B1329C2182D00950BAF /* CustomTabViewContainer.swift in Sources */,
 				4D6CAFFC29AF2ABA0094E69D /* TimerManager.swift in Sources */,
 				4D6CAFFE29AF2D1C0094E69D /* TimerView.swift in Sources */,
 				4D9770BE29B8324000DE01A8 /* DateModel.swift in Sources */,
+				4D064B1729C21C5200950BAF /* TabViewItem.swift in Sources */,
 				4D39C93129B2D2DD00D6BEAA /* MotionManager.swift in Sources */,
+				4D064B1129C2046600950BAF /* CustomTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
