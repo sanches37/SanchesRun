@@ -8,16 +8,23 @@
 import SwiftUI
 
 struct RecordView: View {
-  let run: Run
+  @StateObject private var viewModel: RecordViewModel
+  
+  init(run: Run) {
+    _viewModel =
+    StateObject(wrappedValue: .init(run: run))
+  }
+  
   var body: some View {
     VStack(spacing: 18) {
-      RecordMapView(runPaths: run.runPaths)
+      RecordMapView()
       runInfo
         .padding(.horizontal)
         .padding(.bottom, 25)
     }
     .navigationTitle("기록")
     .navigationBarTitleDisplayMode(.large)
+    .environmentObject(viewModel)
   }
   
   @ViewBuilder
@@ -27,7 +34,7 @@ struct RecordView: View {
         Text("시간")
           .fontSize(18)
           .foregroundColor(Color.lightslategray)
-        Text(run.activeTime.positionalTime)
+        Text(viewModel.activeTime)
           .fontSize(46)
           .foregroundColor(Color.primary)
           .lineLimit(1)
@@ -39,7 +46,7 @@ struct RecordView: View {
           Text("페이스")
             .fontSize(18)
             .foregroundColor(Color.lightslategray)
-          Text(run.averagePace.positionalTime)
+          Text(viewModel.averagePace)
             .fontSize(40)
             .foregroundColor(Color.primary)
             .lineLimit(1)
@@ -50,7 +57,7 @@ struct RecordView: View {
           Text("거리")
             .fontSize(18)
             .foregroundColor(Color.lightslategray)
-          Text(run.totalDistance.withMeter)
+          Text(viewModel.totalDistance)
             .fontSize(40)
             .foregroundColor(Color.primary)
             .lineLimit(1)

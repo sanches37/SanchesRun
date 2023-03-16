@@ -10,7 +10,7 @@ import NMapsMap
 import Combine
 
 struct RecordMapView: UIViewRepresentable {
-  let runPaths: [[Location]]
+  @EnvironmentObject private var viewModel: RecordViewModel
   let multipartPath = NMFMultipartPath()
   
   func makeUIView(context: Context) -> NMFMapView {
@@ -32,38 +32,16 @@ struct RecordMapView: UIViewRepresentable {
   }
   
   private func updatePath(mapView: NMFMapView) {
-    let convertRunPaths =
-    runPaths
-      .map {
-        $0.map {
-          NMGLatLng(
-            lat: $0.latitude,
-            lng: $0.longitude
-          )
-        }
-      }
     multipartPath.lineParts =
-    convertRunPaths.map {
-      NMGLineString(points: $0)
-    }
+    viewModel.runPaths.map { NMGLineString(points: $0) }
     multipartPath.colorParts
       .append(NMFPathColor(color: UIColor(Color.mediumseagreen)))
     multipartPath.mapView = mapView
   }
   
   private func focusAveragePath(mapView: NMFMapView) {
-    let array = runPaths.flatMap { $0 }
-    let centerLat =
-    array.reduce(0) { result, location in
-      result + location.latitude
-    } / Double(array.count)
-    
-    let centerLng =
-    array.reduce(0) { result, location in
-      result + location.longitude
-    } / Double(array.count)
-    
-    let averagePath =  NMGLatLng(lat: centerLat, lng: centerLng)
+    let averagePath =
+    NMGLatLng(lat: viewModel.centerLatitude, lng: viewModel.centerLongitude)
     let cameraUpdate = NMFCameraUpdate(scrollTo: averagePath)
     mapView.moveCamera(cameraUpdate)
   }
