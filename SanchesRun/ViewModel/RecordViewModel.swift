@@ -8,12 +8,8 @@
 import Foundation
 import NMapsMap
 
-final class RecordViewModel: ObservableObject {
+struct RecordViewModel {
   let run: Run
-  
-  init(run: Run) {
-    self.run = run
-  }
   
   var activeTime: String {
     run.activeTime.positionalTime
@@ -28,7 +24,7 @@ final class RecordViewModel: ObservableObject {
   }
   
   var runPaths: [[NMGLatLng]] {
-    return run.runPaths
+    run.runPaths
       .map {
         $0.map {
           NMGLatLng(

@@ -7,10 +7,9 @@
 
 import SwiftUI
 import NMapsMap
-import Combine
 
 struct RecordMapView: UIViewRepresentable {
-  @EnvironmentObject private var viewModel: RecordViewModel
+  let viewModel: RecordViewModel
   let multipartPath = NMFMultipartPath()
   
   func makeUIView(context: Context) -> NMFMapView {

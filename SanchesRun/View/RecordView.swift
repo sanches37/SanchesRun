@@ -8,23 +8,21 @@
 import SwiftUI
 
 struct RecordView: View {
-  @StateObject private var viewModel: RecordViewModel
+  private let viewModel: RecordViewModel
   
   init(run: Run) {
-    _viewModel =
-    StateObject(wrappedValue: .init(run: run))
+    self.viewModel = .init(run: run)
   }
   
   var body: some View {
     VStack(spacing: 18) {
-      RecordMapView()
+      RecordMapView(viewModel: viewModel)
       runInfo
         .padding(.horizontal)
         .padding(.bottom, 25)
     }
     .navigationTitle("기록")
     .navigationBarTitleDisplayMode(.large)
-    .environmentObject(viewModel)
   }
   
   @ViewBuilder
