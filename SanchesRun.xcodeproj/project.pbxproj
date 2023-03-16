@@ -18,6 +18,9 @@
 		4D39C93329B36EA000D6BEAA /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C93229B36EA000D6BEAA /* Double.swift */; };
 		4D39C95829B5A1B900D6BEAA /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C95729B5A1B900D6BEAA /* PersistenceController.swift */; };
 		4D39C95B29B5A4A200D6BEAA /* SanchesRun.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D39C95929B5A4A200D6BEAA /* SanchesRun.xcdatamodeld */; };
+		4D415B7E29C38F770073C7AE /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D415B7D29C38F770073C7AE /* LiveActivityManager.swift */; };
+		4D415B7F29C3B2420073C7AE /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00529AF30780094E69D /* FontSize.swift */; };
+		4D415B8029C3B2530073C7AE /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00729AF30C10094E69D /* Color.swift */; };
 		4D47FEE029AC8C5B00EBB956 /* SanchesRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEDF29AC8C5B00EBB956 /* SanchesRunApp.swift */; };
 		4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEE129AC8C5B00EBB956 /* ContentView.swift */; };
 		4D47FEE429AC8C5E00EBB956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */; };
@@ -39,7 +42,7 @@
 		4DE8BABE29BD0694007C6264 /* PermissionDenied.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BABD29BD0694007C6264 /* PermissionDenied.swift */; };
 		4DF020C529C26D9F00B9CABB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF020C429C26D9F00B9CABB /* WidgetKit.framework */; };
 		4DF020C729C26D9F00B9CABB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF020C629C26D9F00B9CABB /* SwiftUI.framework */; };
-		4DF020CA29C26D9F00B9CABB /* RunStatusBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF020C929C26D9F00B9CABB /* RunStatusBundle.swift */; };
+		4DF020CA29C26D9F00B9CABB /* RunStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF020C929C26D9F00B9CABB /* RunStatusView.swift */; };
 		4DF020CC29C26D9F00B9CABB /* RunStatusLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF020CB29C26D9F00B9CABB /* RunStatusLiveActivity.swift */; };
 		4DF020D029C26DA000B9CABB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DF020CF29C26DA000B9CABB /* Assets.xcassets */; };
 		4DF020D429C26DA000B9CABB /* RunStatusExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4DF020C329C26D9F00B9CABB /* RunStatusExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -87,6 +90,7 @@
 		4D39C93229B36EA000D6BEAA /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		4D39C95729B5A1B900D6BEAA /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		4D39C95A29B5A4A200D6BEAA /* SanchesRun.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SanchesRun.xcdatamodel; sourceTree = "<group>"; };
+		4D415B7D29C38F770073C7AE /* LiveActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityManager.swift; sourceTree = "<group>"; };
 		4D47FEDC29AC8C5B00EBB956 /* SanchesRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SanchesRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D47FEDF29AC8C5B00EBB956 /* SanchesRunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanchesRunApp.swift; sourceTree = "<group>"; };
 		4D47FEE129AC8C5B00EBB956 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -112,7 +116,7 @@
 		4DF020C329C26D9F00B9CABB /* RunStatusExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RunStatusExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF020C429C26D9F00B9CABB /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		4DF020C629C26D9F00B9CABB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		4DF020C929C26D9F00B9CABB /* RunStatusBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunStatusBundle.swift; sourceTree = "<group>"; };
+		4DF020C929C26D9F00B9CABB /* RunStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunStatusView.swift; sourceTree = "<group>"; };
 		4DF020CB29C26D9F00B9CABB /* RunStatusLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunStatusLiveActivity.swift; sourceTree = "<group>"; };
 		4DF020CF29C26DA000B9CABB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DF020D129C26DA000B9CABB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 				4D47FEF029AC901400EBB956 /* LocationManager.swift */,
 				4D6CAFFB29AF2ABA0094E69D /* TimerManager.swift */,
 				4D39C93029B2D2DC00D6BEAA /* MotionManager.swift */,
+				4D415B7D29C38F770073C7AE /* LiveActivityManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -297,8 +302,8 @@
 		4DF020C829C26D9F00B9CABB /* RunStatus */ = {
 			isa = PBXGroup;
 			children = (
-				4DF020C929C26D9F00B9CABB /* RunStatusBundle.swift */,
 				4DF020CB29C26D9F00B9CABB /* RunStatusLiveActivity.swift */,
+				4DF020C929C26D9F00B9CABB /* RunStatusView.swift */,
 				4DF020CF29C26DA000B9CABB /* Assets.xcassets */,
 				4DF020D129C26DA000B9CABB /* Info.plist */,
 			);
@@ -485,6 +490,7 @@
 				4DE8BAB829BA2DCF007C6264 /* RecordMapView.swift in Sources */,
 				4D47FEF629AC97E600EBB956 /* RunViewModel.swift in Sources */,
 				4D6CB00029AF2F200094E69D /* TimeInterval.swift in Sources */,
+				4D415B7E29C38F770073C7AE /* LiveActivityManager.swift in Sources */,
 				4DF9882129B7901700894C53 /* RecordListView.swift in Sources */,
 				4DF9882329B7997100894C53 /* Date.swift in Sources */,
 				4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */,
@@ -521,7 +527,9 @@
 			files = (
 				4DF020CC29C26D9F00B9CABB /* RunStatusLiveActivity.swift in Sources */,
 				4DF020DB29C26E0400B9CABB /* RunAttributes.swift in Sources */,
-				4DF020CA29C26D9F00B9CABB /* RunStatusBundle.swift in Sources */,
+				4DF020CA29C26D9F00B9CABB /* RunStatusView.swift in Sources */,
+				4D415B8029C3B2530073C7AE /* Color.swift in Sources */,
+				4D415B7F29C3B2420073C7AE /* FontSize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

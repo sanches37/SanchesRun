@@ -10,8 +10,9 @@ import ActivityKit
 
 struct RunAttributes: ActivityAttributes {
   public struct ContentState: Codable, Hashable {
-    var time: TimeInterval
-    var totalDistance: Double
-    var oneKilometerPace: TimeInterval
+    var totalDistance: String
+    var oneKilometerPace: String
   }
+  
+  var startDate: Date
 }

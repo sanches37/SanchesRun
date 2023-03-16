@@ -12,6 +12,7 @@ final class RunViewModel: ObservableObject {
   private let locationManager = LocationManager()
   private let timerManager = TimerManager()
   private let motionManager = MotionManager()
+  private let liveActivityManager = LiveActivityManager()
   private var cancellable = Set<AnyCancellable>()
   
   @Published private var userLocation: Location?
@@ -33,6 +34,10 @@ final class RunViewModel: ObservableObject {
     fetchRunPathsByTimerState()
     fetchAveragePace()
     checkPermissionDenied()
+    
+    if #available(iOS 16.1, *) {
+      updateLiveActivityByAveragePace()
+    }
   }
   
   deinit {
@@ -163,6 +168,7 @@ final class RunViewModel: ObservableObject {
     self.timerManager.start()
     self.saveStartDate()
     self.timerState = .active
+    
     if #available(iOS 16.1, *) {
       addLiveActivity()
     }
@@ -176,6 +182,10 @@ final class RunViewModel: ObservableObject {
   func timerPause() {
     timerState = .pause
     timerManager.pause()
+    
+    if #available(iOS 16.1, *) {
+      stopLiveActivity()
+    }
   }
   
   private func saveRun() {
@@ -218,27 +228,37 @@ final class RunViewModel: ObservableObject {
   }
 }
 
-import ActivityKit
-
 @available(iOS 16.1, *)
 extension RunViewModel {
-  private func addLiveActivity() {
-    let runAttributes = RunAttributes()
-    let initalContentState = RunAttributes.ContentState(
-      time: self.time,
-      totalDistance: self.totalDistance,
-      oneKilometerPace: self.oneKilometerPace
+  private var initAttributes: RunAttributes {
+    return RunAttributes(startDate: timerManager.startDate)
+  }
+  
+  private var initContentState: RunAttributes.ContentState {
+    return RunAttributes.ContentState(
+      totalDistance: self.totalDistance.withMeter,
+      oneKilometerPace: self.oneKilometerPace.positionalTime
     )
-    
-    do {
-      let activity = try Activity<RunAttributes>.request(
-        attributes: runAttributes,
-        contentState: initalContentState,
-        pushType: nil
-      )
-      print("success id: \(activity.id)")
-    } catch {
-      debugPrint(error.localizedDescription)
-    }
+  }
+  
+  private func addLiveActivity() {
+    liveActivityManager.add(initAttributes, initContentState)
+  }
+  
+  private func stopLiveActivity() {
+    liveActivityManager.stop(initAttributes)
+  }
+  
+  private func updateLiveActivity() {
+    liveActivityManager.update(initAttributes, initContentState)
+  }
+  
+  private func updateLiveActivityByAveragePace() {
+    $oneKilometerPace
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] _ in
+        self?.updateLiveActivity()
+      }
+      .store(in: &cancellable)
   }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 final class TimerManager {
-  private var startDate = Date()
+  private(set) var startDate = Date()
   private var difference: TimeInterval = 0
   private var pauseTimeInterval: TimeInterval = 0
   
