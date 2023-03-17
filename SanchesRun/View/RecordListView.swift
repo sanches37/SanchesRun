@@ -41,6 +41,7 @@ struct RecordListView: View {
             viewModel.removeRun(runs, indexSet: $0)
           }
         }
+        .listStyle(.insetGrouped)
       }
     }
     .padding()
