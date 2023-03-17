@@ -44,6 +44,7 @@ struct RecordListView: View {
       }
     }
     .padding()
+    .navigationBarHidden(true)
   }
   
   private func recordRow(run: Run) -> some View {
