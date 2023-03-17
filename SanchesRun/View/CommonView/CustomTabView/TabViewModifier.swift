@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-struct TabViewPreferenceKey: PreferenceKey {
-  static var defaultValue: [TabViewItem] = []
-  
-  static func reduce(value: inout [TabViewItem], nextValue: () -> [TabViewItem]) {
-    value += nextValue()
-  }
-}
-
 struct TabViewModifier: ViewModifier {
   let tab: TabViewItem
   @Binding var selection: TabViewItem
@@ -22,7 +14,6 @@ struct TabViewModifier: ViewModifier {
   func body(content: Content) -> some View {
     content
       .opacity(selection == tab ? 1.0 : 0)
-      .preference(key: TabViewPreferenceKey.self, value: [tab])
   }
 }
 

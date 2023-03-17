@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum TabViewItem: Hashable {
+enum TabViewItem: Hashable, CaseIterable {
   case run, record
   
   var iconName: String {

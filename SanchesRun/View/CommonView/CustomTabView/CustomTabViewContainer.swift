@@ -16,15 +16,15 @@ struct CustomTabViewContainer<Content: View>: View {
     self._selection = selection
     self.content = content()
   }
-    var body: some View {
-      VStack(spacing: 0) {
-        ZStack {
-          content
-        }
-        CustomTabView(tabs: tabs, selection: $selection)
+  var body: some View {
+    VStack(spacing: 0) {
+      ZStack {
+        content
       }
-      .onPreferenceChange(TabViewPreferenceKey.self) { value in
-        self.tabs = value
-      }
+      CustomTabView(tabs: tabs, selection: $selection)
     }
+    .onAppear {
+      self.tabs = TabViewItem.allCases
+    }
+  }
 }
