@@ -45,6 +45,7 @@ struct RunMapView: UIViewRepresentable {
         let cameraUpdate = NMFCameraUpdate(scrollTo: $0)
         mapView.moveCamera(cameraUpdate)
         mapView.positionMode = .direction
+        mapView.positionMode = .normal
       }
       .store(in: &context.coordinator.cancellable)
   }
@@ -63,6 +64,7 @@ struct RunMapView: UIViewRepresentable {
         cameraUpdate.animation = .easeOut
         mapView.moveCamera(cameraUpdate)
         mapView.positionMode = .direction
+        mapView.positionMode = .normal
       }
       .store(in: &context.coordinator.cancellable)
   }

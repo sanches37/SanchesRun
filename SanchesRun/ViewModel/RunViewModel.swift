@@ -87,7 +87,7 @@ final class RunViewModel: ObservableObject {
     .compactMap { location, _ in location }
     .removeDuplicates { preValue, currentValue in
       let difference = preValue.distance(from: currentValue)
-      let allowableDistance: Double = 15
+      let allowableDistance: Double = 10
       return allowableDistance > difference
     }
     .sink { [weak self] result in
