@@ -48,4 +48,28 @@ struct RecordViewModel {
       result + location.longitude
     } / Double(array.count)
   }
+  
+  var firstRunPath: NMGLatLng? {
+    run.runPaths
+      .flatMap { $0 }
+      .first
+      .map {
+        NMGLatLng(
+          lat: $0.latitude,
+          lng: $0.longitude
+        )
+      }
+  }
+  
+  var lastRunPath: NMGLatLng? {
+    run.runPaths
+      .flatMap { $0 }
+      .last
+      .map {
+        NMGLatLng(
+          lat: $0.latitude,
+          lng: $0.longitude
+        )
+      }
+  }
 }

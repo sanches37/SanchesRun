@@ -22,6 +22,7 @@ struct RecordMapView: UIViewRepresentable {
     defaultSetting(mapView: mapView)
     focusAveragePath(mapView: mapView)
     updatePath(mapView: mapView)
+    addfirstAndLastWindowView(mapView: mapView)
   }
   
   private func defaultSetting(mapView: NMFMapView) {
@@ -43,6 +44,24 @@ struct RecordMapView: UIViewRepresentable {
     NMGLatLng(lat: viewModel.centerLatitude, lng: viewModel.centerLongitude)
     let cameraUpdate = NMFCameraUpdate(scrollTo: averagePath)
     mapView.moveCamera(cameraUpdate)
+  }
+  
+  private func addfirstAndLastWindowView(mapView: NMFMapView) {
+    addWindowView(mapView: mapView, position: viewModel.firstRunPath, color: .lightcoral)
+    addWindowView(mapView: mapView, position: viewModel.lastRunPath, color: .cornflowerblue)
+  }
+  
+  private func addWindowView(
+    mapView: NMFMapView,
+    position: NMGLatLng?,
+    color: Color
+  ) {
+    guard let position = position else { return }
+    let infoWindow = NMFInfoWindow()
+    infoWindow.anchor = CGPoint(x: 0.5, y: 0.5)
+    infoWindow.dataSource = CustomWindowView(color: UIColor(color))
+    infoWindow.position = position
+    infoWindow.open(with: mapView)
   }
   
   func updateUIView(_ uiView: NMFMapView, context: Context) {}
