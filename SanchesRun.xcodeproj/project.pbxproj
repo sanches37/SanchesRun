@@ -23,6 +23,7 @@
 		4D415B8029C3B2530073C7AE /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CB00729AF30C10094E69D /* Color.swift */; };
 		4D415B8229C3CF3F0073C7AE /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D415B8129C3CF3F0073C7AE /* RecordViewModel.swift */; };
 		4D415B8429C3DD980073C7AE /* CustomWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D415B8329C3DD980073C7AE /* CustomWindowView.swift */; };
+		4D415B8529C477D60073C7AE /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CAFFF29AF2F200094E69D /* TimeInterval.swift */; };
 		4D47FEE029AC8C5B00EBB956 /* SanchesRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEDF29AC8C5B00EBB956 /* SanchesRunApp.swift */; };
 		4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEE129AC8C5B00EBB956 /* ContentView.swift */; };
 		4D47FEE429AC8C5E00EBB956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */; };
@@ -534,6 +535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DF020CC29C26D9F00B9CABB /* RunStatusLiveActivity.swift in Sources */,
+				4D415B8529C477D60073C7AE /* TimeInterval.swift in Sources */,
 				4DF020DB29C26E0400B9CABB /* RunAttributes.swift in Sources */,
 				4DF020CA29C26D9F00B9CABB /* RunStatusView.swift in Sources */,
 				4D415B8029C3B2530073C7AE /* Color.swift in Sources */,

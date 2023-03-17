@@ -31,7 +31,7 @@ final class TimerManager {
   }
   
   func pause() {
-    self.pauseTimeInterval = difference
+    self.pauseTimeInterval = floor(difference)
   }
 }
 
