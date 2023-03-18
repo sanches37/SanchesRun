@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+  @EnvironmentObject private var appState: AppState
   @State private var selection: TabViewItem = .run
   
   var body: some View {
@@ -20,5 +21,7 @@ struct ContentView: View {
       }
     }
     .navigationViewStyle(.stack)
+    .onReceive(appState.$isAppUpdate) { _ in
+    }
   }
 }

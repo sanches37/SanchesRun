@@ -25,6 +25,7 @@ class AppState: ObservableObject {
     
     let url = URL(string: "http://itunes.apple.com/kr/lookup?bundleId=\(id)")
     networkManager.fetch(type: AppleAppModel.self, url: url)
+      .receive(on: DispatchQueue.main)
       .sink { completion in
         switch completion {
         case .finished:
@@ -40,13 +41,12 @@ class AppState: ObservableObject {
   
   private func checkAppVersion(appVersion: String) {
     guard let info = Bundle.main.infoDictionary,
-          let currentVersion = info["CFBundleShortVersionString"] as? String else {
+          let currentVersion = info["CFBundleShortVersionString"] as? String,
+          let appVersionInt = Int(appVersion.split(separator: ".").map { $0 }.joined()),
+          let currentVersionInt = Int(currentVersion.split(separator: ".").map { $0 }.joined()) else {
       return
     }
-    
-    let appVersionFloat = NSString.init(string: appVersion).floatValue
-    let currentVersionFloat = NSString.init(string: currentVersion).floatValue
-    if appVersionFloat > currentVersionFloat {
+    if appVersionInt > currentVersionInt {
       self.isAppUpdate = true
     }
   }
