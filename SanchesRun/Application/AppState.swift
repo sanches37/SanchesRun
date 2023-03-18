@@ -10,21 +10,21 @@ import Combine
 
 class AppState: ObservableObject {
   private let networkManager = NetworkManager()
+  private let appVersionManager = AppVersionManager()
   private var cancellable = Set<AnyCancellable>()
-  @Published private(set) var isAppUpdate = false
+  @Published var isAppUpdate = false
   
   init() {
     fetchAppVersion()
   }
   
+  deinit {
+    print("AppState Deinit")
+  }
+  
   private func fetchAppVersion() {
-    guard let info = Bundle.main.infoDictionary,
-          let id = info["CFBundleIdentifier"] as? String else {
-      return
-    }
-    
-    let url = URL(string: "http://itunes.apple.com/kr/lookup?bundleId=\(id)")
-    networkManager.fetch(type: AppleAppModel.self, url: url)
+    guard appVersionManager.checkAppVersionDate else { return }
+    networkManager.fetch(type: AppleAppModel.self, url: appVersionManager.appInfoURL)
       .receive(on: DispatchQueue.main)
       .sink { completion in
         switch completion {
@@ -34,20 +34,11 @@ class AppState: ObservableObject {
           debugPrint(error.localizedDescription)
         }
       } receiveValue: { result in
-        self.checkAppVersion(appVersion: result.results[0].version)
+        if self.appVersionManager.checkAppVersion(
+          appVersion: result.results[0].version) {
+          self.isAppUpdate = true
+        }
       }
       .store(in: &cancellable)
-  }
-  
-  private func checkAppVersion(appVersion: String) {
-    guard let info = Bundle.main.infoDictionary,
-          let currentVersion = info["CFBundleShortVersionString"] as? String,
-          let appVersionInt = Int(appVersion.split(separator: ".").map { $0 }.joined()),
-          let currentVersionInt = Int(currentVersion.split(separator: ".").map { $0 }.joined()) else {
-      return
-    }
-    if appVersionInt > currentVersionInt {
-      self.isAppUpdate = true
-    }
   }
 }

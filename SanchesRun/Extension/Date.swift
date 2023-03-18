@@ -23,4 +23,9 @@ extension Date {
       return calender.date(byAdding: .day, value: day - 1, to: startDate)!
     }
   }
+  
+  var nextDay: Date {
+    let today = Calendar.current.startOfDay(for: self)
+    return Calendar.current.date(byAdding: .day, value: 1, to: today)!
+  }
 }

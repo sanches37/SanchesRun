@@ -21,7 +21,30 @@ struct ContentView: View {
       }
     }
     .navigationViewStyle(.stack)
-    .onReceive(appState.$isAppUpdate) { _ in
+    .alert(isPresented: $appState.isAppUpdate) {
+      updateAppAlert
     }
+  }
+  
+  private var updateAppAlert: Alert {
+    UserDefaults.standard.set(
+      Date(),
+      forKey: UserDefaultsKey.appVersionDate
+    )
+  
+    return Alert(
+      title: Text("최신버전 업데이트"),
+      primaryButton: .default(Text("업데이트하기")) {
+        if let url = PropertyStore.appStoreURL,
+           UIApplication.shared.canOpenURL(url) {
+          UIApplication.shared.open(
+            url,
+            options: [:],
+            completionHandler: nil
+          )
+        }
+      },
+      secondaryButton: .cancel(Text("취소"))
+    )
   }
 }

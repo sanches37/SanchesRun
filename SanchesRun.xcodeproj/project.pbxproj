@@ -28,6 +28,8 @@
 		4D415B8A29C519D50073C7AE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D415B8929C519D50073C7AE /* NetworkError.swift */; };
 		4D415B8C29C522B40073C7AE /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D415B8B29C522B40073C7AE /* AppState.swift */; };
 		4D415B8E29C524B30073C7AE /* AppleAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D415B8D29C524B30073C7AE /* AppleAppModel.swift */; };
+		4D415B9029C5C16B0073C7AE /* PropertyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D415B8F29C5C16B0073C7AE /* PropertyStore.swift */; };
+		4D415B9429C5D7150073C7AE /* AppVersionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D415B9329C5D7150073C7AE /* AppVersionManager.swift */; };
 		4D47FEE029AC8C5B00EBB956 /* SanchesRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEDF29AC8C5B00EBB956 /* SanchesRunApp.swift */; };
 		4D47FEE229AC8C5B00EBB956 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47FEE129AC8C5B00EBB956 /* ContentView.swift */; };
 		4D47FEE429AC8C5E00EBB956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D47FEE329AC8C5E00EBB956 /* Assets.xcassets */; };
@@ -104,6 +106,8 @@
 		4D415B8929C519D50073C7AE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		4D415B8B29C522B40073C7AE /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		4D415B8D29C524B30073C7AE /* AppleAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAppModel.swift; sourceTree = "<group>"; };
+		4D415B8F29C5C16B0073C7AE /* PropertyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyStore.swift; sourceTree = "<group>"; };
+		4D415B9329C5D7150073C7AE /* AppVersionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionManager.swift; sourceTree = "<group>"; };
 		4D47FEDC29AC8C5B00EBB956 /* SanchesRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SanchesRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D47FEDF29AC8C5B00EBB956 /* SanchesRunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanchesRunApp.swift; sourceTree = "<group>"; };
 		4D47FEE129AC8C5B00EBB956 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 				4D39C93029B2D2DC00D6BEAA /* MotionManager.swift */,
 				4D415B7D29C38F770073C7AE /* LiveActivityManager.swift */,
 				4D415B8629C515970073C7AE /* NetworkManager.swift */,
+				4D415B9329C5D7150073C7AE /* AppVersionManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				4DE8BABD29BD0694007C6264 /* PermissionDenied.swift */,
+				4D415B8F29C5C16B0073C7AE /* PropertyStore.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 				4D064B0329C1AD3900950BAF /* LocationModel.swift in Sources */,
 				4D6CB00B29AF36E80094E69D /* RunMapView.swift in Sources */,
 				4DE8BAB429B9CB11007C6264 /* RecordListViewModel.swift in Sources */,
+				4D415B9029C5C16B0073C7AE /* PropertyStore.swift in Sources */,
 				4D415B8A29C519D50073C7AE /* NetworkError.swift in Sources */,
 				4D064B0729C1B4C100950BAF /* Location.swift in Sources */,
 				4D47FEF329AC97B900EBB956 /* RunView.swift in Sources */,
@@ -541,6 +548,7 @@
 				4D47FEF129AC901400EBB956 /* LocationManager.swift in Sources */,
 				4DE8BABE29BD0694007C6264 /* PermissionDenied.swift in Sources */,
 				4D9770BA29B82BD500DE01A8 /* CustomDatePicker.swift in Sources */,
+				4D415B9429C5D7150073C7AE /* AppVersionManager.swift in Sources */,
 				4D415B8E29C524B30073C7AE /* AppleAppModel.swift in Sources */,
 				4D6CB00329AF30520094E69D /* PrimaryButtonStyle.swift in Sources */,
 				4D064B1329C2182D00950BAF /* CustomTabViewContainer.swift in Sources */,
