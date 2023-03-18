@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-enum ViewTab {
-  case run
-  case record
-}
-
 struct ContentView: View {
   @State private var selection: TabViewItem = .run
   

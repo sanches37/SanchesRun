@@ -29,7 +29,7 @@ struct RunMapView: UIViewRepresentable {
   
   private func defaultSetting(mapView: NMFMapView) {
     mapView.zoomLevel = 17
-    mapView.minZoomLevel = 13
+    mapView.minZoomLevel = 12
     multipartPath.width = 10
   }
   private func focusFirstLocation(context: Context, mapView: NMFMapView) {

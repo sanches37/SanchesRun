@@ -15,6 +15,7 @@ struct SanchesRunApp: App {
         .environment(
           \.managedObjectContext,
            PersistenceController.shared.container.viewContext)
+        .environmentObject(AppState())
     }
   }
 }
