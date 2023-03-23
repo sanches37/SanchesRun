@@ -15,6 +15,7 @@ struct RecordMapView: UIViewRepresentable {
   func makeUIView(context: Context) -> NMFMapView {
     let view = NMFMapView()
     setUp(mapView: view)
+    view.addCameraDelegate(delegate: context.coordinator)
     return view
   }
   
@@ -26,7 +27,7 @@ struct RecordMapView: UIViewRepresentable {
   }
   
   private func defaultSetting(mapView: NMFMapView) {
-    mapView.zoomLevel = 13
+    mapView.zoomLevel = 17
     mapView.minZoomLevel = 12
     multipartPath.width = 10
   }
@@ -65,4 +66,27 @@ struct RecordMapView: UIViewRepresentable {
   }
   
   func updateUIView(_ uiView: NMFMapView, context: Context) {}
+  
+  func makeCoordinator() -> Coordinator {
+    RecordMapView.Coordinator(viewModel: viewModel)
+  }
+  
+  class Coordinator: NSObject {
+    private let viewModel: RecordViewModel
+    
+    init(viewModel: RecordViewModel) {
+      self.viewModel = viewModel
+    }
+  }
+}
+
+extension RecordMapView.Coordinator: NMFMapViewCameraDelegate {
+  func mapView(_ mapView: NMFMapView, cameraDidChangeByReason reason: Int, animated: Bool) {
+    let runPaths = viewModel.runPaths.flatMap { $0 }
+    guard !runPaths.isEmpty else { return }
+    let bound = NMGLatLngBounds(latLngs: runPaths)
+    if reason == 0 && !mapView.contentBounds.hasBounds(bound) {
+      mapView.moveCamera(.withZoomOut())
+    }
+  }
 }

@@ -30,8 +30,8 @@ final class RunViewModel: ObservableObject {
   init() {
     fetchLocation()
     fetchFirstLocation()
-    fetchRunPaths()
-    fetchRunPathsByTimerState()
+    fetchRunPathsByActive()
+    fetchRunPathsByPause()
     fetchAveragePace()
     checkPermissionDenied()
     
@@ -76,7 +76,7 @@ final class RunViewModel: ObservableObject {
     }
   }
   
-  private func fetchRunPaths() {
+  private func fetchRunPathsByActive() {
     Publishers.CombineLatest(
       $userLocation,
       motionManager.observeActiveMotion()
@@ -96,9 +96,9 @@ final class RunViewModel: ObservableObject {
     .store(in: &cancellable)
   }
   
-  private func fetchRunPathsByTimerState() {
+  private func fetchRunPathsByPause() {
     $timerState
-      .filter { $0 != .stop }
+      .filter { $0 == .pause }
       .flatMap { [weak self] _ in
         self?.$userLocation.first().eraseToAnyPublisher() ?? Just(nil).eraseToAnyPublisher()
       }
